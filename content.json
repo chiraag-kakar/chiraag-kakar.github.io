@@ -1,0 +1,522 @@
+{
+  "meta": {
+    "name": "Chiraag",
+    "accent": ".dev",
+    "title": "Backend & Platform Engineer",
+    "tagline": "Backend systems that don't blink"
+  },
+  
+  "navigation": [
+    { "text": "The Journey", "href": "#chapters", "section": "chapters" },
+    { "text": "Arsenal", "href": "#arsenal", "section": "arsenal" },
+    { "text": "Quests", "href": "#quests", "section": "quests" },
+    { "text": "Philosophy", "href": "#philosophy", "section": "philosophy" },
+    { "text": "Epilogue", "href": "#contact", "section": "contact" }
+  ],
+  
+  "hero": {
+    "badge": "Crafting Distributed Systems",
+    "titleLine1": "Every line of code",
+    "titleLine2": "tells a story.",
+    "titleHighlight": "This is mine.",
+    "subtitle": "Software Engineer with 3+ years crafting backend systems that power millions of transactions. In the world of distributed systems, elegance isn't about what you add—it's about what you can take away while maintaining reliability at scale.",
+    "ctaText": "Begin the Journey"
+  },
+  
+  "arsenal": {
+    "eyebrow": "Tech Arsenal",
+    "title": "Tools of the Trade",
+    "subtitle": "Technologies I've wielded in production to build systems that scale",
+    "categories": [
+      {
+        "name": "Languages",
+        "items": ["TypeScript", "Python", "Golang", "Java"]
+      },
+      {
+        "name": "Backend",
+        "items": ["Node.js", "FastAPI", "Django", "Express"]
+      },
+      {
+        "name": "Cloud & DevOps",
+        "items": ["AWS Lambda", "SQS", "DynamoDB", "Terraform", "Docker"]
+      },
+      {
+        "name": "Databases",
+        "items": ["PostgreSQL", "MongoDB", "Redis", "DynamoDB"]
+      },
+      {
+        "name": "Frontend",
+        "items": ["Vue.js", "React", "Flutter"]
+      },
+      {
+        "name": "Tools",
+        "items": ["Git", "CI/CD", "Nginx", "Streamlit"]
+      }
+    ]
+  },
+  
+  "chapters": [
+    {
+      "id": "chapter-coda",
+      "chapterLabel": "Chapter 01 · 2022 – Present",
+      "company": "Coda Payments",
+      "companyUrl": "https://coda.co/",
+      "role": "Software Engineer",
+      "period": "June 2022 – Present",
+      "title": "Publisher Integrations Platform",
+      "tagline": "Where millions of transactions find their path",
+      "story": {
+        "setting": "Coda Payments powers digital transactions for 300+ publishers and 50+ gaming titles across 84 countries. The platform processes $100M+ in monthly TPV, connecting gamers with their favorite titles through a complex web of payment channels, compliance rules, and content providers.",
+        "quest": "How do you transform a fragmented integration landscape—where each publisher required custom builds taking weeks—into a unified platform that onboards publishers in hours while maintaining 99.9% uptime?"
+      },
+      "journey": [
+        {
+          "title": "Understanding the Chaos",
+          "text": "Mapped the end-to-end publisher lifecycle and found ~70% of integration work was repetitive boilerplate hidden inside one-off implementations. Each new partner meant weeks of duplicated effort—and a growing surface area for mistakes.",
+          "quote": "\"The first step to solving any problem is seeing it clearly.\""
+        },
+        {
+          "title": "Designing for Reuse, Not Exceptions",
+          "text": "Designed reusable, access-controlled internal APIs and configuration-driven workflows that turn publisher and campaign complexity into safe defaults. Standardization cut cross-team integration effort by ~70% and made onboarding more predictable.",
+          "quote": "\"Platforms succeed when defaults work for most cases.\""
+        },
+        {
+          "title": "Self-Service as a Revenue Engine",
+          "text": "Built and evolved the Self-Service Publisher Portal so publishers could onboard, configure products, and launch within guardrails. This directly enabled new publishers to contribute $5M+ in monthly TPV via self-service.",
+          "quote": "\"Self-service only works when failure is designed out.\""
+        },
+        {
+          "title": "When a Campaign Couldn’t Fail",
+          "text": "Resolved a critical ICC campaign launch blocker where two concurrent campaigns clashed during execution. Designed a parallel execution workaround within platform constraints and personally applied the production configuration to unblock the launch without delays.",
+          "quote": "\"Reliability is tested when there is no rollback window.\""
+        },
+        {
+          "title": "Operational Excellence at Scale",
+          "text": "Built automation for pricing, SKU management, product pages, reporting, and scheduler-driven data syncs using Lambda, SQS, Redis, and DynamoDB. Reduced manual configuration effort by 40% and cut operational workflows by 30–50%.",
+          "quote": "\"Automation is how platforms pay back their complexity.\""
+        },
+        {
+          "title": "Performance & Quality as Features",
+          "text": "Optimized critical backend paths through query/index tuning, caching, and asynchronous processing to improve p95 latency by 30–40%. Strengthened quality via TDD, automated testing pipelines (Postman → TeamCity), SonarQube gates, and structured RCAs—treating reliability as a first-class product feature.",
+          "quote": "\"Fast systems earn trust; predictable systems keep it.\""
+        }
+      ],
+      "impact": [
+        { "value": "84", "label": "Countries Supported" },
+        { "value": "300+", "label": "Publishers" },
+        { "value": "$100M+", "label": "Monthly TPV" },
+        { "value": "$5M+", "label": "TPV via Self-Service" },
+        { "value": "70%", "label": "Less Integration Effort" },
+        { "value": "40%", "label": "Less Manual Config" },
+        { "value": "30–50%", "label": "Ops Workflow Reduction" },
+        { "value": "30–40%", "label": "p95 Latency Improvement" }
+      ],
+      "tech": ["TypeScript", "Node.js", "AWS Lambda", "SQS", "DynamoDB", "Redis", "Vue.js", "Java"]
+    },
+    {
+      "id": "chapter-hyperverge",
+      "chapterLabel": "Chapter 02 · Jan – Jun 2022",
+      "company": "HyperVerge Inc.",
+      "companyUrl": "https://hyperverge.co/in/",
+      "role": "SDE Intern (DevOps)",
+      "period": "January 2022 – June 2022",
+      "title": "Codifying the Cloud",
+      "tagline": "When infrastructure becomes poetry",
+      "story": {
+        "setting": "HyperVerge powers AI-driven identity verification for banks and fintech companies. The infrastructure team was manually provisioning CI runners—each setup taking hours and prone to configuration drift.",
+        "quest": "Transform manual provisioning into reusable infrastructure that teams could deploy with confidence, while automating the migration from on-premises to cloud."
+      },
+      "journey": [
+        {
+          "title": "The Manual Pain",
+          "text": "Watched engineers spend days configuring CI runners. Each setup was slightly different, creating a maintenance nightmare and slowing down the entire development cycle.",
+          "quote": "\"If you're doing it twice, you're doing it wrong.\""
+        },
+        {
+          "title": "Infrastructure as Code",
+          "text": "Built reusable Terraform modules for AWS CI runner provisioning. One command to provision, one command to destroy. Standardized configuration across all teams.",
+          "quote": "\"Good infrastructure documents itself.\""
+        },
+        {
+          "title": "Cloud Migration",
+          "text": "Worked with MasterDB team on reconciliation pipelines for OnPrem to Cloud migration. Automated deployments across multiple Auto Scaling Groups.",
+          "quote": "\"Migration is a journey, not a destination.\""
+        }
+      ],
+      "impact": [
+        { "value": "4K+", "label": "Module Downloads" },
+        { "value": "Multi-ASG", "label": "Deployments" },
+        { "value": "100%", "label": "IaC Coverage" }
+      ],
+      "tech": ["Terraform", "AWS", "CI/CD", "Auto Scaling", "DevOps"]
+    },
+    {
+      "id": "chapter-sequoia",
+      "chapterLabel": "Chapter 03 · Aug 2021 – Jan 2022",
+      "company": "Sequoia Capital",
+      "companyUrl": "https://www.peakxv.com/",
+      "role": "Software Consultant",
+      "period": "August 2021 – January 2022",
+      "title": "Building for Founders",
+      "tagline": "Where ideas meet execution",
+      "story": {
+        "setting": "Sequoia Surge connects early-stage founders with resources and mentorship. The Pathfinder app needed to deliver cross-platform experiences that felt native while maintaining rapid iteration cycles.",
+        "quest": "Ship production-ready mobile and web features with comprehensive test coverage in tight timelines, ensuring the platform scales with the founder community."
+      },
+      "journey": [
+        {
+          "title": "Cross-Platform Excellence",
+          "text": "Built responsive Flutter widgets with GetX state management. Mobile and web needed to feel native without maintaining separate codebases—Flutter delivered that promise.",
+          "quote": "\"Great mobile experiences feel native, not compromised.\""
+        },
+        {
+          "title": "Backend Services",
+          "text": "Designed and implemented Profile and Support backend services using FastAPI. Clean APIs, automated tests, and documentation that developers actually read.",
+          "quote": "\"APIs are contracts. Treat them like legal documents.\""
+        }
+      ],
+      "impact": [
+        { "value": "2", "label": "Services Shipped" },
+        { "value": "100%", "label": "Test Coverage" },
+        { "value": "Cross-Platform", "label": "Flutter Apps" }
+      ],
+      "tech": ["Flutter", "GetX", "FastAPI", "Python", "Automated Testing"]
+    },
+    {
+      "id": "chapter-economize",
+      "chapterLabel": "Chapter 04 · May – Jul 2021",
+      "company": "Economize.cloud",
+      "companyUrl": "https://www.economize.cloud/",
+      "role": "Software Engineer Intern",
+      "period": "May 2021 – July 2021",
+      "title": "Making Cloud Costs Visible",
+      "tagline": "Every dollar saved is a dollar earned",
+      "story": {
+        "setting": "Cloud bills are notoriously opaque. Economize helps companies understand where their money goes and how to optimize spend without sacrificing performance.",
+        "quest": "Build APIs and components that surface actionable cost insights from complex GCP billing data, making the invisible visible."
+      },
+      "journey": [
+        {
+          "title": "The Visibility Problem",
+          "text": "Teams couldn't optimize what they couldn't see. Built REST APIs in Golang that translated GCP billing complexity into clear, actionable insights.",
+          "quote": "\"You can't optimize what you can't measure.\""
+        },
+        {
+          "title": "Cost Optimization",
+          "text": "Built Vue components for listing Committed Use Discounts and VM Disks. Each insight became an opportunity to save thousands in cloud spend.",
+          "quote": "\"Every dollar saved in cloud is a dollar invested in product.\""
+        }
+      ],
+      "impact": [
+        { "value": "GCP", "label": "Integration" },
+        { "value": "CUD", "label": "Analysis" },
+        { "value": "REST", "label": "APIs Built" }
+      ],
+      "tech": ["Golang", "Vue.js", "Google Cloud SDK", "Redis"]
+    },
+    {
+      "id": "chapter-hackerearth",
+      "chapterLabel": "Chapter 05 · Feb – May 2021",
+      "company": "HackerEarth",
+      "companyUrl": "https://www.hackerearth.com/",
+      "role": "Full Stack Problem Setter",
+      "period": "February 2021 – May 2021",
+      "title": "Crafting Coding Challenges",
+      "tagline": "Teaching through thoughtful problems",
+      "story": {
+        "setting": "HackerEarth is a platform where developers sharpen their skills through coding challenges. Great problems don't just test—they teach.",
+        "quest": "Create full-stack problems of varying difficulties that challenge developers while being fair, educational, and thoroughly tested."
+      },
+      "journey": [
+        {
+          "title": "Problem Design",
+          "text": "Created full-stack problems primarily in Django, balancing difficulty with learning outcomes. Each problem told a story that made the challenge engaging.",
+          "quote": "\"A good problem is a puzzle that rewards understanding.\""
+        },
+        {
+          "title": "Quality Assurance",
+          "text": "Wrote comprehensive unit tests to verify module functionality and data integrity. A problem with a bug is worse than no problem at all.",
+          "quote": "\"Test the tests, then test again.\""
+        }
+      ],
+      "impact": [
+        { "value": "Multiple", "label": "Problems Created" },
+        { "value": "Full Stack", "label": "Challenges" }
+      ],
+      "tech": ["Django", "Python", "Testing", "Problem Design"]
+    },
+    {
+      "id": "chapter-jwoc",
+      "chapterLabel": "Chapter 06 · Jan – Feb 2021",
+      "company": "JGEC Winter of Code",
+      "companyUrl": "https://jwoc-2k21.vercel.app/",
+      "role": "Lead Organiser & Program Manager",
+      "period": "January 2021 – February 2021",
+      "title": "Nurturing Open Source",
+      "tagline": "Building the next generation of contributors",
+      "story": {
+        "setting": "JGEC Winter of Code is an open-source program helping students take their first steps into the world of collaborative software development.",
+        "quest": "Organize and scale an event that introduces hundreds of students to open source while maintaining quality mentorship and meaningful contributions."
+      },
+      "journey": [
+        {
+          "title": "Community Building",
+          "text": "Organized an event with 600+ registered participants from across India. Built systems to match mentees with projects and mentors effectively.",
+          "quote": "\"Open source is about people as much as code.\""
+        },
+        {
+          "title": "Hands-on Mentorship",
+          "text": "Mentored Share N Learn project personally. Guided contributors through 50+ merged PRs and 70+ closed issues—each one a learning moment.",
+          "quote": "\"The best way to learn is to ship something real.\""
+        }
+      ],
+      "impact": [
+        { "value": "600+", "label": "Participants" },
+        { "value": "50+", "label": "PRs Merged" },
+        { "value": "70+", "label": "Issues Closed" }
+      ],
+      "tech": ["Open Source", "Community", "Mentorship", "Git"]
+    },
+    {
+      "id": "chapter-zaptay",
+      "chapterLabel": "Chapter 07 · Nov 2020 – Feb 2021",
+      "company": "Zaptay.com",
+      "role": "Software Engineer Intern",
+      "period": "November 2020 – February 2021",
+      "title": "E-Commerce from Scratch",
+      "tagline": "Building storefronts that sell",
+      "story": {
+        "setting": "Every e-commerce platform starts somewhere. Zaptay needed a complete storefront—from browsing to checkout to payment—built from the ground up.",
+        "quest": "Collaborate with a cross-functional team to build a production e-commerce portal, complete with payment integration and deployment to AWS."
+      },
+      "journey": [
+        {
+          "title": "Full Stack Development",
+          "text": "Built the e-commerce portal collaborating with front-end and back-end developers. Learned the art of shipping features that work together seamlessly.",
+          "quote": "\"E-commerce is easy until someone tries to pay.\""
+        },
+        {
+          "title": "Payment & Production",
+          "text": "Set up payment flow, troubleshot production bugs, and deployed using Django, Nginx, and MongoDB on AWS EC2. Production taught lessons textbooks can't.",
+          "quote": "\"Production bugs are the universe's way of teaching humility.\""
+        }
+      ],
+      "impact": [
+        { "value": "E2E", "label": "Payment Flow" },
+        { "value": "AWS", "label": "Deployed" }
+      ],
+      "tech": ["Django", "MongoDB", "Nginx", "AWS EC2", "Payments"]
+    },
+    {
+      "id": "chapter-iitk",
+      "chapterLabel": "Chapter 08 · Dec 2019 – Jan 2021",
+      "company": "IIT Kharagpur - CoE AMT",
+      "companyUrl": "https://coeamt.iitkgp.ac.in/",
+      "role": "Software Engineer & Research Intern",
+      "period": "December 2019 – January 2021",
+      "title": "Where Research Meets Production",
+      "tagline": "Making ML models production-ready",
+      "story": {
+        "setting": "The Centre of Excellence in Advanced Manufacturing Technologies at IIT Kharagpur was working on process optimization for friction stir welding using deep learning.",
+        "quest": "Transform research CNN models into production-ready applications—both standalone GUI and web-based—that manufacturing engineers could actually use."
+      },
+      "journey": [
+        {
+          "title": "Research Foundation",
+          "text": "Worked on Process Optimization & Operational Intelligence for friction stir welding. Explored ways to validate weld quality and identify defect types.",
+          "quote": "\"Research without application is just expensive curiosity.\""
+        },
+        {
+          "title": "Production Applications",
+          "text": "Developed standalone GUI application integrated with CNN model. Built interactive Django web application making the solution accessible to non-technical users.",
+          "quote": "\"The best ML model is useless if nobody can use it.\""
+        }
+      ],
+      "impact": [
+        { "value": "Production", "label": "Ready ML Apps" },
+        { "value": "1+ Year", "label": "Research" }
+      ],
+      "tech": ["Python", "Django", "CNN", "Machine Learning", "GUI Development"]
+    },
+    {
+      "id": "chapter-makaut",
+      "chapterLabel": "Chapter 09 · The Written Word",
+      "company": "MAKAUT Research",
+      "companyUrl": "https://link.springer.com/",
+      "role": "Research Intern & Co-Author",
+      "period": "August 2020 – October 2020",
+      "title": "Contributing to Knowledge",
+      "tagline": "When research becomes publication",
+      "story": {
+        "setting": "Machine learning is transforming healthcare, particularly in cancer prognosis. The challenge was to create a comprehensive review that would help future researchers navigate this complex landscape.",
+        "quest": "Co-author a book chapter reviewing ML architectures for cancer disease analysis, providing both depth for experts and accessibility for newcomers."
+      },
+      "journey": [
+        {
+          "title": "Deep Dive",
+          "text": "Worked under Dr. Soumen Kr Pati on an in-depth review of ML architectures for cancer prognosis. Evaluated each taxonomy through rigorous evaluation metrics.",
+          "quote": "\"Good research stands on the shoulders of giants.\""
+        },
+        {
+          "title": "Publication",
+          "text": "Chapter published in Springer's Advanced Machine Learning Approaches in Cancer Prognosis 2020. Included future scopes and recommendations for researchers.",
+          "quote": "\"A published paper is just the beginning of its impact.\""
+        }
+      ],
+      "impact": [
+        { "value": "Springer", "label": "Publisher" },
+        { "value": "ISRL 204", "label": "Book Series" }
+      ],
+      "tech": ["Machine Learning", "Research", "Data Analysis", "Academic Writing"],
+      "publication": {
+        "title": "Data Analysis on Cancer Disease Using Machine Learning Techniques",
+        "publisher": "Springer",
+        "date": "May 29, 2021",
+        "series": "Intelligent Systems Reference Library (ISRL, volume 204)",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-030-71975-3_2"
+      }
+    }
+  ],
+  
+  "quests": {
+    "eyebrow": "Side Quests",
+    "title": "The Laboratory",
+    "subtitle": "Weekend experiments that became something more",
+    "projects": [
+      {
+        "title": "Peak Locator",
+        "useCase": "A collection of peak detection algorithms for numerical data. Supports 1D (brute force, binary search, hybrid), 2D (divide-and-conquer for matrices), and N-dimensional data with automatic algorithm selection, duplicate handling, and built-in visualization tools. Production-ready with full type annotations and comprehensive tests.",
+        "tech": ["Python", "NumPy", "Matplotlib", "PyPI Package", "Type Annotations"],
+        "github": "https://github.com/chiraag-kakar/peak-locator",
+        "demo": "https://pypi.org/project/peak-locator/",
+        "icon": "📊"
+      },
+      {
+        "title": "LuminaCV",
+        "useCase": "Privacy-first resume builder running entirely in your browser. No sign-ups, no servers, no data collection. Features real-time preview, 4 professional templates, multiple exports (PDF, JSON, Markdown), zero-server URL sharing, keyboard shortcuts, WCAG 2.1 AA compliance, and 50+ E2E test scenarios.",
+        "tech": ["TypeScript", "React", "Tailwind CSS", "Client-Side Only", "WCAG 2.1 AA"],
+        "github": "https://github.com/chiraag-kakar/luminacv",
+        "demo": "https://chiraag-kakar.github.io/luminacv/",
+        "icon": "✨"
+      },
+      {
+        "title": "Terraform AWS Module",
+        "useCase": "A public, reusable Terraform module for AWS infrastructure published to the official Terraform Registry. Enables infrastructure-as-code best practices with modular, composable cloud resources that teams can deploy with confidence.",
+        "tech": ["Terraform", "AWS", "Infrastructure as Code", "HCL", "DevOps"],
+        "github": "https://github.com/chiraag-kakar/terraform-aws-mod_reuse",
+        "demo": "https://registry.terraform.io/modules/chiraag-kakar/mod_reuse/aws/latest",
+        "icon": "🏗️"
+      }
+    ]
+  },
+  
+  "education": {
+    "eyebrow": "The Foundation",
+    "title": "Where It All Began",
+    "school": "Jalpaiguri Government Engineering College",
+    "degree": "B.Tech, Computer Science & Engineering",
+    "period": "July 2018 – June 2022",
+    "gpa": "CGPA: 8.5 / 10.0",
+    "location": "Jalpaiguri, West Bengal, India"
+  },
+  
+  "philosophy": {
+    "eyebrow": "Principles",
+    "title": "Engineering Philosophy",
+    "subtitle": "The beliefs that guide how I build systems and work with teams",
+    "cards": [
+      {
+        "icon": "⚡",
+        "title": "Simplicity Over Cleverness",
+        "text": "The best code isn't the cleverest—it's the code your teammates can understand at 3am during an incident."
+      },
+      {
+        "icon": "📊",
+        "title": "Measure First, Optimize Second",
+        "text": "Intuition is often wrong about performance. Instrument everything, profile bottlenecks, then optimize what matters."
+      },
+      {
+        "icon": "🔄",
+        "title": "Embrace Eventual Consistency",
+        "text": "In distributed systems, strong consistency is expensive. Design for eventual consistency where business logic allows."
+      },
+      {
+        "icon": "📝",
+        "title": "Document Decisions",
+        "text": "Future you will forget why you made that choice. ADRs, comments on the 'why', and runbooks save hours of archaeology."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Fail Gracefully",
+        "text": "Systems will fail. Design for graceful degradation—circuit breakers, fallbacks, and clear error messages for operators."
+      },
+      {
+        "icon": "🤝",
+        "title": "Build for the Team",
+        "text": "Code outlives its authors. Good APIs, clear boundaries, and honest documentation compound over time."
+      }
+    ]
+  },
+  
+  "contact": {
+    "label": "Epilogue",
+    "title": "Let's Write the Next Chapter",
+    "subtitle": "Whether you're scaling systems, building teams, or just want to discuss distributed architecture—I'd love to hear from you.",
+    "items": [
+      {
+        "label": "Email",
+        "value": "chiraag.kakar.22@gmail.com",
+        "link": "mailto:chiraag.kakar.22@gmail.com"
+      },
+      {
+        "label": "GitHub",
+        "value": "@chiraag-kakar",
+        "link": "https://github.com/chiraag-kakar"
+      },
+      {
+        "label": "LinkedIn",
+        "value": "/in/chiraag-kakar",
+        "link": "https://www.linkedin.com/in/chiraag-kakar"
+      }
+    ],
+    "formTypes": ["Opportunity", "Collaboration", "Just Saying Hi"],
+    "placeholders": {
+      "name": "Your name",
+      "email": "your@email.com",
+      "message": "Tell me about your challenge..."
+    },
+    "submitText": "Send Message",
+    "quote": "\"The best systems are built by people who care about the problem, not just the solution.\""
+  },
+  
+  "footer": {
+    "copyright": "Chiraag Kakar",
+    "tagline": "Building systems that scale, one commit at a time",
+    "sections": [
+      {
+        "title": "Connect",
+        "links": [
+          { "text": "GitHub", "url": "https://github.com/chiraag-kakar" },
+          { "text": "LinkedIn", "url": "https://www.linkedin.com/in/chiraag-kakar" },
+          { "text": "Medium", "url": "https://medium.com/@chiraag-kakar" }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          { "text": "Resume", "url": "https://drive.google.com/file/d/1QZwBAC9qPKj33dXXLj5XvWYwwFo69I9Z/view?usp=sharing" },
+          { "text": "Publication", "url": "https://link.springer.com/chapter/10.1007/978-3-030-71975-3_2" }
+        ]
+      },
+      {
+        "title": "Navigate",
+        "links": [
+          { "text": "The Journey", "url": "#chapters" },
+          { "text": "Arsenal", "url": "#arsenal" },
+          { "text": "Quests", "url": "#quests" }
+        ]
+      }
+    ],
+    "bottomText": "Designed & built with ☕ and curiosity"
+  }
+}
