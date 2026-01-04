@@ -711,22 +711,31 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  font-family: inherit;
 }
 
 .mobile-dropdown-trigger svg {
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .mobile-nav-dropdown.active .mobile-dropdown-trigger svg {
   transform: rotate(180deg);
 }
 
+.mobile-nav-dropdown.active .mobile-dropdown-trigger {
+  color: var(--color-accent);
+}
+
 .mobile-dropdown-menu {
   display: none;
   flex-direction: column;
-  padding-left: var(--space-4);
-  border-left: 2px solid var(--color-border);
+  padding: var(--space-3) 0 var(--space-3) var(--space-4);
+  border-left: 2px solid var(--color-accent);
   margin: var(--space-2) 0 var(--space-4) var(--space-2);
+  max-height: 50vh;
+  overflow-y: auto;
+  gap: var(--space-1);
 }
 
 .mobile-nav-dropdown.active .mobile-dropdown-menu {
@@ -737,23 +746,43 @@ button {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-2) 0;
+  padding: var(--space-3) var(--space-3);
   font-size: var(--text-base);
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md);
+  background: transparent;
 }
 
-.mobile-dropdown-item:hover {
-  color: var(--color-accent);
+.mobile-dropdown-item:hover,
+.mobile-dropdown-item:active {
+  color: var(--color-text);
+  background: var(--color-bg-alt);
 }
 
 .mobile-dropdown-item .dropdown-chapter-num {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-accent);
+  min-width: 40px;
 }
 
 .mobile-dropdown-item .dropdown-chapter-company {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* View All Chapters link in mobile */
+.mobile-dropdown-item:first-child {
+  font-weight: 600;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
+  border-radius: 0;
 }
 
 .nav-actions {
@@ -895,7 +924,10 @@ button {
   padding: var(--space-8) var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-4);
+  max-height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu-content .nav-link {
@@ -2615,7 +2647,40 @@ button {
 /* Chapter Detail Responsive */
 @media (max-width: 768px) {
   .chapter-header {
-    padding: var(--space-12) var(--space-4);
+    padding: var(--space-10) var(--space-4);
+  }
+  
+  .chapter-header h1 {
+    font-size: var(--text-2xl);
+  }
+  
+  .chapter-tagline {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-6);
+  }
+  
+  .chapter-meta {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .meta-divider {
+    display: none;
+  }
+  
+  .chapter-label {
+    margin-bottom: var(--space-4);
+    font-size: 0.65rem;
+    padding: var(--space-1) var(--space-3);
+  }
+  
+  .chapter-back {
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-4);
+  }
+  
+  .chapter-story {
+    padding: var(--space-10) var(--space-4);
   }
   
   .story-grid {
@@ -2623,23 +2688,103 @@ button {
     gap: var(--space-8);
   }
   
+  .story-text {
+    font-size: var(--text-base);
+  }
+  
+  .chapter-journey {
+    padding: var(--space-10) var(--space-4);
+  }
+  
+  .journey-section-title,
+  .impact-section-title {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-8);
+  }
+  
   .journey-timeline {
-    padding-left: var(--space-8);
+    padding-left: var(--space-10);
+  }
+  
+  .journey-timeline::before {
+    left: 12px;
   }
   
   .step-marker {
-    left: calc(-1 * var(--space-8) - 12px);
+    left: 0;
     width: 24px;
     height: 24px;
   }
   
+  .step-content {
+    padding: var(--space-4);
+  }
+  
+  .step-title {
+    font-size: var(--text-base);
+  }
+  
+  .step-text {
+    font-size: var(--text-sm);
+  }
+  
+  .step-quote {
+    padding: var(--space-3);
+    font-size: var(--text-sm);
+  }
+  
+  .chapter-impact {
+    padding: var(--space-10) var(--space-4);
+  }
+  
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .impact-card {
+    padding: var(--space-4);
+  }
+  
+  .impact-value {
+    font-size: var(--text-xl);
+  }
+  
+  .impact-label {
+    font-size: var(--text-xs);
+  }
+  
+  .chapter-tech {
+    padding: var(--space-8) var(--space-4);
+  }
+  
+  .tech-section-title {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+  }
+  
+  .tech-tags {
+    gap: var(--space-2);
+  }
+  
+  .tech-tag {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+  }
+  
+  .chapter-nav {
+    padding: var(--space-8) var(--space-4);
+  }
+  
   .chapter-nav-inner {
     flex-direction: column;
+    gap: var(--space-4);
   }
   
   .chapter-nav-link {
     max-width: 100%;
     min-width: auto;
+    padding: var(--space-4);
   }
   
   .chapter-nav-link.next {
@@ -2649,6 +2794,55 @@ button {
   
   .chapter-nav-link.next .nav-label {
     justify-content: flex-start;
+  }
+  
+  .nav-title {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-header {
+    padding: var(--space-8) var(--space-3);
+  }
+  
+  .chapter-header h1 {
+    font-size: var(--text-xl);
+  }
+  
+  .chapter-tagline {
+    font-size: var(--text-sm);
+  }
+  
+  .chapter-story,
+  .chapter-journey,
+  .chapter-impact {
+    padding: var(--space-8) var(--space-3);
+  }
+  
+  .journey-timeline {
+    padding-left: var(--space-8);
+  }
+  
+  .step-marker {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .step-number {
+    font-size: 0.6rem;
+  }
+  
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chapter-tech {
+    padding: var(--space-6) var(--space-3);
+  }
+  
+  .chapter-nav {
+    padding: var(--space-6) var(--space-3);
   }
 }
 
