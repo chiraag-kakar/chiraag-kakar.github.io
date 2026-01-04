@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter — Chiraag.dev</title>
+  <meta name="description" content="A chapter in my engineering journey.">
+  <meta name="theme-color" content="#faf8f5">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23c9a66b' rx='20' width='100' height='100'/><text x='50' y='68' text-anchor='middle' fill='%23faf8f5' font-family='system-ui' font-weight='700' font-size='55'>C</text></svg>">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="chapter-page">
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-name" id="nav-logo-name">Chiraag</span><span class="logo-accent" id="nav-logo-accent">.dev</span>
+      </a>
+      <div class="nav-links" id="nav-links"></div>
+      <div class="nav-right">
+        <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-bar" id="reading-progress-bar"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-content" id="mobile-menu-links"></div>
+  </div>
+
+  <!-- Chapter Detail Content -->
+  <main class="chapter-detail" id="chapter-detail">
+    <!-- Chapter Header -->
+    <header class="chapter-header">
+      <div class="chapter-header-inner">
+        <a href="index.html#chapters" class="chapter-back">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Back to Journey</span>
+        </a>
+        <div class="chapter-label" id="chapter-label"></div>
+        <h1 id="chapter-title"></h1>
+        <p class="chapter-tagline" id="chapter-tagline"></p>
+        <div class="chapter-meta">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="chapter-company" id="company-link">
+            <span id="company-name"></span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+          <span class="meta-divider"></span>
+          <span class="chapter-role" id="chapter-role"></span>
+          <span class="meta-divider"></span>
+          <span class="chapter-period" id="chapter-period"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Story Section -->
+    <section class="chapter-story">
+      <div class="chapter-story-inner">
+        <div class="story-grid">
+          <div class="story-block">
+            <span class="story-label">The Setting</span>
+            <p class="story-text" id="story-setting-text"></p>
+          </div>
+          <div class="story-block">
+            <span class="story-label">The Quest</span>
+            <p class="story-text" id="story-quest-text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey Steps -->
+    <section class="chapter-journey">
+      <div class="chapter-journey-inner">
+        <h2 class="journey-section-title">The Journey</h2>
+        <div class="journey-timeline" id="journey-timeline"></div>
+      </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="chapter-impact">
+      <div class="chapter-impact-inner">
+        <h2 class="impact-section-title">The Impact</h2>
+        <div class="impact-grid" id="impact-grid"></div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="chapter-tech">
+      <div class="chapter-tech-inner">
+        <h2 class="tech-section-title">Tech Stack</h2>
+        <div class="tech-tags" id="tech-tags"></div>
+      </div>
+    </section>
+
+    <!-- Navigation to other chapters -->
+    <nav class="chapter-nav">
+      <div class="chapter-nav-inner">
+        <a href="#" class="chapter-nav-link prev" id="prev-chapter">
+          <span class="nav-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Previous Chapter
+          </span>
+          <span class="nav-title" id="prev-chapter-title"></span>
+        </a>
+        <a href="#" class="chapter-nav-link next" id="next-chapter">
+          <span class="nav-label">
+            Next Chapter
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+          <span class="nav-title" id="next-chapter-title"></span>
+        </a>
+      </div>
+    </nav>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">Chiraag<span>.dev</span></span>
+          <p class="footer-tagline" id="footer-tagline"></p>
+        </div>
+        <div class="footer-sections" id="footer-sections"></div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© <span id="footer-year"></span> <span id="footer-copyright"></span></p>
+        <p class="footer-built" id="footer-built"></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/chapter.js"></script>
+</body>
+</html>

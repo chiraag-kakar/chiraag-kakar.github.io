@@ -38,9 +38,30 @@ class App {
       // Animate chapters on scroll
       this.setupChapterAnimations();
       
+      // Setup reading progress bar
+      this.setupReadingProgress();
+      
     } catch (error) {
       console.error('Failed to initialize app:', error);
     }
+  }
+
+  setupReadingProgress() {
+    const progressBar = document.getElementById('reading-progress-bar');
+    if (!progressBar) return;
+
+    const updateProgress = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      progressBar.style.width = `${Math.min(progress, 100)}%`;
+    };
+
+    window.addEventListener('scroll', () => {
+      requestAnimationFrame(updateProgress);
+    });
+    
+    updateProgress();
   }
 
   setupHeroParallax() {

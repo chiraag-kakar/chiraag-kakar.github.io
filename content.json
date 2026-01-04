@@ -10,6 +10,7 @@
     { "text": "The Journey", "href": "#chapters", "section": "chapters" },
     { "text": "Arsenal", "href": "#arsenal", "section": "arsenal" },
     { "text": "Quests", "href": "#quests", "section": "quests" },
+    { "text": "Foundation", "href": "#education", "section": "education" },
     { "text": "Philosophy", "href": "#philosophy", "section": "philosophy" },
     { "text": "Epilogue", "href": "#contact", "section": "contact" }
   ],
@@ -20,7 +21,8 @@
     "titleLine2": "tells a story.",
     "titleHighlight": "This is mine.",
     "subtitle": "Software Engineer with 3+ years crafting backend systems that power millions of transactions. In the world of distributed systems, elegance isn't about what you add—it's about what you can take away while maintaining reliability at scale.",
-    "ctaText": "Begin the Journey"
+    "ctaText": "Begin the Journey",
+    "readTime": "~12 min read"
   },
   
   "arsenal": {
@@ -63,8 +65,13 @@
       "companyUrl": "https://coda.co/",
       "role": "Software Engineer",
       "period": "June 2022 – Present",
-      "title": "Publisher Integrations Platform",
+      "title": "From Custom Builds to Self-Service",
       "tagline": "Where millions of transactions find their path",
+      "highlight": {
+        "metric": "$100M+",
+        "label": "Monthly TPV",
+        "punch": "Turned weeks of integration work into hours. Built the self-service engine that unlocked $5M+ in new revenue."
+      },
       "story": {
         "setting": "Coda Payments powers digital transactions for 300+ publishers and 50+ gaming titles across 84 countries. The platform processes $100M+ in monthly TPV, connecting gamers with their favorite titles through a complex web of payment channels, compliance rules, and content providers.",
         "quest": "How do you transform a fragmented integration landscape—where each publisher required custom builds taking weeks—into a unified platform that onboards publishers in hours while maintaining 99.9% uptime?"
@@ -120,8 +127,13 @@
       "companyUrl": "https://hyperverge.co/in/",
       "role": "SDE Intern (DevOps)",
       "period": "January 2022 – June 2022",
-      "title": "Codifying the Cloud",
-      "tagline": "When infrastructure becomes poetry",
+      "title": "When Infrastructure Became Code",
+      "tagline": "From manual toil to one-command deployments",
+      "highlight": {
+        "metric": "4K+",
+        "label": "Module Downloads",
+        "punch": "Replaced days of manual CI setup with Terraform modules. One command to provision, one to destroy."
+      },
       "story": {
         "setting": "HyperVerge powers AI-driven identity verification for banks and fintech companies. The infrastructure team was manually provisioning CI runners—each setup taking hours and prone to configuration drift.",
         "quest": "Transform manual provisioning into reusable infrastructure that teams could deploy with confidence, while automating the migration from on-premises to cloud."
@@ -157,8 +169,13 @@
       "companyUrl": "https://www.peakxv.com/",
       "role": "Software Consultant",
       "period": "August 2021 – January 2022",
-      "title": "Building for Founders",
+      "title": "Shipping for the Startup World",
       "tagline": "Where ideas meet execution",
+      "highlight": {
+        "metric": "100%",
+        "label": "Test Coverage",
+        "punch": "Cross-platform Flutter apps. FastAPI services. Built for founders who move fast."
+      },
       "story": {
         "setting": "Sequoia Surge connects early-stage founders with resources and mentorship. The Pathfinder app needed to deliver cross-platform experiences that felt native while maintaining rapid iteration cycles.",
         "quest": "Ship production-ready mobile and web features with comprehensive test coverage in tight timelines, ensuring the platform scales with the founder community."
@@ -189,8 +206,13 @@
       "companyUrl": "https://www.economize.cloud/",
       "role": "Software Engineer Intern",
       "period": "May 2021 – July 2021",
-      "title": "Making Cloud Costs Visible",
+      "title": "Decoding the Cloud Bill",
       "tagline": "Every dollar saved is a dollar earned",
+      "highlight": {
+        "metric": "GCP",
+        "label": "Integration",
+        "punch": "Made opaque cloud bills readable. Golang APIs turning billing chaos into actionable savings."
+      },
       "story": {
         "setting": "Cloud bills are notoriously opaque. Economize helps companies understand where their money goes and how to optimize spend without sacrificing performance.",
         "quest": "Build APIs and components that surface actionable cost insights from complex GCP billing data, making the invisible visible."
@@ -221,8 +243,13 @@
       "companyUrl": "https://www.hackerearth.com/",
       "role": "Full Stack Problem Setter",
       "period": "February 2021 – May 2021",
-      "title": "Crafting Coding Challenges",
-      "tagline": "Teaching through thoughtful problems",
+      "title": "Designing Problems That Teach",
+      "tagline": "Where challenges become learning moments",
+      "highlight": {
+        "metric": "Full Stack",
+        "label": "Challenges",
+        "punch": "Crafted Django problems that test skill without frustration. The best puzzles reward understanding."
+      },
       "story": {
         "setting": "HackerEarth is a platform where developers sharpen their skills through coding challenges. Great problems don't just test—they teach.",
         "quest": "Create full-stack problems of varying difficulties that challenge developers while being fair, educational, and thoroughly tested."
@@ -252,8 +279,13 @@
       "companyUrl": "https://jwoc-2k21.vercel.app/",
       "role": "Lead Organiser & Program Manager",
       "period": "January 2021 – February 2021",
-      "title": "Nurturing Open Source",
+      "title": "Lighting the Open Source Spark",
       "tagline": "Building the next generation of contributors",
+      "highlight": {
+        "metric": "600+",
+        "label": "Participants",
+        "punch": "Organized India-wide open source program. 50+ PRs merged. First commits for hundreds."
+      },
       "story": {
         "setting": "JGEC Winter of Code is an open-source program helping students take their first steps into the world of collaborative software development.",
         "quest": "Organize and scale an event that introduces hundreds of students to open source while maintaining quality mentorship and meaningful contributions."
@@ -283,8 +315,13 @@
       "company": "Zaptay.com",
       "role": "Software Engineer Intern",
       "period": "November 2020 – February 2021",
-      "title": "E-Commerce from Scratch",
+      "title": "When Payments Met Production",
       "tagline": "Building storefronts that sell",
+      "highlight": {
+        "metric": "E2E",
+        "label": "Payment Flow",
+        "punch": "E-commerce from scratch to production. Django, payments, and AWS. Production bugs teach humility."
+      },
       "story": {
         "setting": "Every e-commerce platform starts somewhere. Zaptay needed a complete storefront—from browsing to checkout to payment—built from the ground up.",
         "quest": "Collaborate with a cross-functional team to build a production e-commerce portal, complete with payment integration and deployment to AWS."
@@ -314,8 +351,13 @@
       "companyUrl": "https://coeamt.iitkgp.ac.in/",
       "role": "Software Engineer & Research Intern",
       "period": "December 2019 – January 2021",
-      "title": "Where Research Meets Production",
+      "title": "Bringing Models to Life",
       "tagline": "Making ML models production-ready",
+      "highlight": {
+        "metric": "1+ Year",
+        "label": "Research",
+        "punch": "CNN models for manufacturing QA. From research papers to Django apps that engineers actually use."
+      },
       "story": {
         "setting": "The Centre of Excellence in Advanced Manufacturing Technologies at IIT Kharagpur was working on process optimization for friction stir welding using deep learning.",
         "quest": "Transform research CNN models into production-ready applications—both standalone GUI and web-based—that manufacturing engineers could actually use."
@@ -345,8 +387,13 @@
       "companyUrl": "https://link.springer.com/",
       "role": "Research Intern & Co-Author",
       "period": "August 2020 – October 2020",
-      "title": "Contributing to Knowledge",
+      "title": "From Research to Springer",
       "tagline": "When research becomes publication",
+      "highlight": {
+        "metric": "Springer",
+        "label": "Publisher",
+        "punch": "Co-authored a book chapter on ML in cancer prognosis. Published in Springer ISRL."
+      },
       "story": {
         "setting": "Machine learning is transforming healthcare, particularly in cancer prognosis. The challenge was to create a comprehensive review that would help future researchers navigate this complex landscape.",
         "quest": "Co-author a book chapter reviewing ML architectures for cancer disease analysis, providing both depth for experts and accessibility for newcomers."

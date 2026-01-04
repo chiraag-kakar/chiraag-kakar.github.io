@@ -39,7 +39,7 @@ export class Renderer {
             <a href="#chapters" class="nav-dropdown-item nav-dropdown-header">View All Chapters</a>
             <div class="nav-dropdown-divider"></div>
             ${chapters.map((ch, i) => `
-              <a href="#${ch.id}" class="nav-dropdown-item" data-chapter="${i}">
+              <a href="chapter.html?id=${ch.id}" class="nav-dropdown-item" data-chapter="${i}">
                 <span class="dropdown-chapter-num">Ch.${String(i + 1).padStart(2, '0')}</span>
                 <span class="dropdown-chapter-info">
                   <span class="dropdown-chapter-company">${ch.company}</span>
@@ -64,7 +64,7 @@ export class Renderer {
           <div class="mobile-dropdown-menu">
             <a href="#chapters" class="mobile-dropdown-item">View All Chapters</a>
             ${chapters.map((ch, i) => `
-              <a href="#${ch.id}" class="mobile-dropdown-item">
+              <a href="chapter.html?id=${ch.id}" class="mobile-dropdown-item">
                 <span class="dropdown-chapter-num">Ch.${String(i + 1).padStart(2, '0')}</span>
                 <span class="dropdown-chapter-company">${ch.company}</span>
               </a>
@@ -135,23 +135,170 @@ export class Renderer {
     document.getElementById('hero-line-2').textContent = hero.titleLine2;
     document.getElementById('hero-line-3').textContent = hero.titleHighlight;
     document.getElementById('hero-subtitle').textContent = hero.subtitle;
-
     document.getElementById('hero-cta-text').textContent = hero.ctaText;
+    
+    const readTimeEl = document.getElementById('hero-read-time');
+    if (readTimeEl && hero.readTime) {
+      readTimeEl.textContent = hero.readTime;
+    }
   }
 
   renderChapters() {
     const { chapters } = this.content;
-    const container = document.getElementById('chapters');
+    const previewGrid = document.getElementById('chapters-preview-grid');
+    const detailContainer = document.getElementById('chapter-detail-content');
 
+    // Render preview cards on landing page
     chapters.forEach((chapter, index) => {
-      // Create a wrapper for sticky scroll space
-      const wrapper = document.createElement('div');
-      wrapper.className = 'chapter-wrapper';
-      
-      const section = this.createChapterSection(chapter, index);
-      wrapper.appendChild(section);
-      container.appendChild(wrapper);
+      const card = this.createChapterPreviewCard(chapter, index);
+      previewGrid.appendChild(card);
     });
+
+    // Setup click handlers for navigation
+    this.setupChapterNavigation(chapters, detailContainer);
+  }
+
+  createChapterPreviewCard(chapter, index) {
+    const card = document.createElement('article');
+    card.className = 'chapter-preview-card fade-in';
+    card.dataset.chapter = index;
+
+    const highlight = chapter.highlight || {};
+    
+    card.innerHTML = `
+      <div class="preview-card-header">
+        <span class="preview-chapter-num">Ch.${String(index + 1).padStart(2, '0')}</span>
+        <div class="preview-company">
+          ${chapter.companyUrl ? `
+            <img src="https://www.google.com/s2/favicons?sz=32&domain_url=${encodeURIComponent(chapter.companyUrl)}" 
+                 alt="${chapter.company}" 
+                 class="preview-favicon"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23c9a66b%22 rx=%2210%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22system-ui%22 font-weight=%22700%22 font-size=%2250%22>${chapter.company.charAt(0)}</text></svg>';" />
+          ` : ''}
+          <span class="preview-company-name">${chapter.company}</span>
+        </div>
+      </div>
+      
+      <h3 class="preview-card-title">${chapter.title}</h3>
+      <p class="preview-card-role">${chapter.role}</p>
+      
+      ${highlight.metric ? `
+        <div class="preview-highlight">
+          <span class="highlight-metric">${highlight.metric}</span>
+          <span class="highlight-label">${highlight.label}</span>
+        </div>
+      ` : ''}
+      
+      <p class="preview-punch">${highlight.punch || chapter.tagline}</p>
+      
+      <div class="preview-card-footer">
+        <span class="preview-cta">Read Chapter →</span>
+      </div>
+    `;
+
+    return card;
+  }
+
+  setupChapterNavigation(chapters, detailContainer) {
+    const previewSection = document.getElementById('chapters');
+    const detailSection = document.getElementById('chapter-detail');
+    const previewCards = document.querySelectorAll('.chapter-preview-card');
+
+    // Click handler for preview cards
+    previewCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const index = parseInt(card.dataset.chapter);
+        this.showChapterDetail(chapters[index], index, chapters.length, detailContainer, detailSection, previewSection);
+      });
+    });
+
+    // Handle URL hash for direct chapter links
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash.startsWith('chapter-')) {
+        const chapter = chapters.find(ch => ch.id === hash);
+        if (chapter) {
+          const index = chapters.indexOf(chapter);
+          this.showChapterDetail(chapter, index, chapters.length, detailContainer, detailSection, previewSection);
+        }
+      } else if (hash === 'chapters' || !hash) {
+        this.showChapterPreviews(previewSection, detailSection);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Check initial hash
+    if (window.location.hash.startsWith('#chapter-')) {
+      setTimeout(handleHashChange, 100);
+    }
+  }
+
+  showChapterDetail(chapter, index, totalChapters, container, detailSection, previewSection) {
+    // Hide preview, show detail
+    previewSection.style.display = 'none';
+    detailSection.style.display = 'block';
+    
+    // Update URL
+    window.history.pushState(null, '', `#${chapter.id}`);
+
+    // Render full chapter content
+    container.innerHTML = '';
+    
+    const backBtn = document.createElement('div');
+    backBtn.className = 'chapter-back-nav';
+    backBtn.innerHTML = `
+      <button class="back-to-chapters" onclick="window.location.hash='chapters'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to All Chapters
+      </button>
+      <span class="chapter-position">Chapter ${index + 1} of ${totalChapters}</span>
+    `;
+    container.appendChild(backBtn);
+
+    const section = this.createChapterSection(chapter, index);
+    container.appendChild(section);
+
+    // Navigation between chapters
+    const chapterNav = document.createElement('div');
+    chapterNav.className = 'chapter-nav';
+    chapterNav.innerHTML = `
+      ${index > 0 ? `
+        <a href="#${this.content.chapters[index - 1].id}" class="chapter-nav-link prev">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Previous: ${this.content.chapters[index - 1].company}</span>
+        </a>
+      ` : '<span></span>'}
+      ${index < totalChapters - 1 ? `
+        <a href="#${this.content.chapters[index + 1].id}" class="chapter-nav-link next">
+          <span>Next: ${this.content.chapters[index + 1].company}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      ` : '<span></span>'}
+    `;
+    container.appendChild(chapterNav);
+
+    // Scroll to top of detail
+    window.scrollTo({ top: detailSection.offsetTop - 100, behavior: 'smooth' });
+    
+    // Re-trigger fade-in animations
+    setTimeout(() => {
+      container.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('visible');
+      });
+    }, 100);
+  }
+
+  showChapterPreviews(previewSection, detailSection) {
+    detailSection.style.display = 'none';
+    previewSection.style.display = 'block';
+    window.history.pushState(null, '', '#chapters');
   }
 
   getChapterGraphic(index) {
