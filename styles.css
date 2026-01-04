@@ -560,7 +560,7 @@ button {
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
-  min-width: 280px;
+  min-width: 720px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -569,8 +569,12 @@ button {
   visibility: hidden;
   transition: all var(--transition-base);
   z-index: 1001;
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: var(--space-2);
 }
 
 .nav-dropdown.active .nav-dropdown-menu {
@@ -582,12 +586,14 @@ button {
 .nav-dropdown-item {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
+  gap: var(--space-2);
+  padding: var(--space-3);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   transition: all var(--transition-fast);
   text-decoration: none;
+  border-radius: var(--radius-md);
+  margin: 2px;
 }
 
 .nav-dropdown-item:hover {
@@ -599,12 +605,14 @@ button {
   font-weight: 600;
   color: var(--color-accent);
   border-bottom: none;
+  grid-column: 1 / -1;
 }
 
 .nav-dropdown-divider {
   height: 1px;
   background: var(--color-border);
   margin: var(--space-2) 0;
+  grid-column: 1 / -1;
 }
 
 .dropdown-chapter-num {
@@ -2111,9 +2119,10 @@ button {
   }
   
   .nav-dropdown-menu {
-    min-width: 260px;
+    min-width: 520px;
     left: 0;
     transform: translateX(0) translateY(-10px);
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .nav-dropdown.active .nav-dropdown-menu {
@@ -2136,6 +2145,11 @@ button {
   
   .nav-cta {
     display: none;
+  }
+  
+  .nav-dropdown-menu {
+    min-width: 280px;
+    grid-template-columns: 1fr;
   }
   
   /* Disable sticky on mobile for smoother scroll */
