@@ -127,79 +127,140 @@ class ChapterPage {
     const ch = this.chapter;
     const idx = this.chapterIndex;
     const chapters = this.content.chapters;
+    const container = document.getElementById('chapter-detail-container');
     
-    // Header
-    document.getElementById('chapter-label').textContent = ch.chapterLabel;
-    document.getElementById('chapter-title').textContent = ch.title;
-    document.getElementById('chapter-tagline').textContent = ch.tagline;
-    
-    // Company link
-    const companyLink = document.getElementById('company-link');
-    if (ch.companyUrl) {
-      companyLink.href = ch.companyUrl;
-      document.getElementById('company-name').textContent = ch.company;
-    } else {
-      document.getElementById('company-name').textContent = ch.company;
-      companyLink.removeAttribute('href');
-      companyLink.style.pointerEvents = 'none';
-      companyLink.querySelector('svg').style.display = 'none';
+    // Create chapter section using the SAME structure as renderer.js
+    const section = document.createElement('section');
+    section.className = 'chapter standalone-chapter-view';
+    section.id = ch.id;
+
+    // Story blocks
+    let storyHTML = '';
+    if (ch.story) {
+      storyHTML = `
+        <div class="chapter-story">
+          <div class="story-block">
+            <h4>The Setting</h4>
+            <p>${ch.story.setting}</p>
+          </div>
+          <div class="story-block">
+            <h4>The Quest</h4>
+            <p>${ch.story.quest}</p>
+          </div>
+        </div>
+      `;
     }
-    
-    document.getElementById('chapter-role').textContent = ch.role;
-    document.getElementById('chapter-period').textContent = ch.period;
-    
-    // Story
-    document.getElementById('story-setting-text').textContent = ch.story.setting;
-    document.getElementById('story-quest-text').textContent = ch.story.quest;
-    
-    // Journey Timeline
-    const timeline = document.getElementById('journey-timeline');
-    timeline.innerHTML = ch.journey.map((step, i) => `
-      <div class="journey-step fade-in" style="animation-delay: ${i * 0.1}s">
-        <div class="step-marker">
-          <span class="step-number">${String(i + 1).padStart(2, '0')}</span>
+
+    // Journey timeline
+    let journeyHTML = '';
+    if (ch.journey && ch.journey.length > 0) {
+      journeyHTML = `
+        <div class="chapter-journey">
+          <h4 class="journey-title">The Journey</h4>
+          <div class="journey-steps">
+            ${ch.journey.map((step, i) => `
+              <div class="journey-step">
+                <div class="journey-step-number">${i + 1}</div>
+                <h5 class="journey-step-title">${step.title}</h5>
+                <p class="journey-step-text">${step.text}</p>
+                ${step.quote ? `<p class="journey-step-quote">${step.quote}</p>` : ''}
+              </div>
+            `).join('')}
+          </div>
         </div>
-        <div class="step-content">
-          <h3 class="step-title">${step.title}</h3>
-          <p class="step-text">${step.text}</p>
-          ${step.quote ? `<blockquote class="step-quote">${step.quote}</blockquote>` : ''}
+      `;
+    }
+
+    // Impact metrics
+    let impactHTML = '';
+    if (ch.impact && ch.impact.length > 0) {
+      impactHTML = `
+        <div class="chapter-impact">
+          ${ch.impact.map(item => `
+            <div class="impact-card">
+              <div class="impact-value">${item.value}</div>
+              <div class="impact-label">${item.label}</div>
+            </div>
+          `).join('')}
         </div>
+      `;
+    }
+
+    // Technologies
+    let techHTML = '';
+    if (ch.tech && ch.tech.length > 0) {
+      techHTML = `
+        <div class="chapter-tech">
+          ${ch.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+        </div>
+      `;
+    }
+
+    // Publication card
+    let publicationHTML = '';
+    if (ch.publication) {
+      publicationHTML = `
+        <a href="${ch.publication.url}" target="_blank" rel="noopener" class="chapter-publication">
+          <div class="publication-badge">📄 Published Work</div>
+          <h4 class="publication-title">${ch.publication.title}</h4>
+          <div class="publication-meta">
+            <span class="publication-publisher">${ch.publication.publisher}</span>
+            <span class="publication-date">${ch.publication.date}</span>
+          </div>
+          <p class="publication-series">${ch.publication.series}</p>
+          <span class="publication-link">Read Publication →</span>
+        </a>
+      `;
+    }
+
+    section.innerHTML = `
+      <div class="chapter-container">
+        <div class="chapter-header">
+          <div class="chapter-meta">
+            <span class="chapter-number">${ch.chapterLabel}</span>
+          </div>
+          <h2 class="chapter-title">${ch.title}</h2>
+          <div class="chapter-company">
+            ${ch.companyUrl ? `
+              <a href="${ch.companyUrl}" target="_blank" rel="noopener" class="company-link">
+                <img src="https://www.google.com/s2/favicons?sz=32&domain_url=${encodeURIComponent(ch.companyUrl)}" 
+                     alt="${ch.company}" 
+                     class="company-favicon"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23c9a66b%22 rx=%2210%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-family=%22system-ui%22 font-weight=%22700%22 font-size=%2250%22>${ch.company.charAt(0)}</text></svg>';" />
+                <strong>${ch.company}</strong>
+              </a>
+            ` : `<strong>${ch.company}</strong>`}
+            · ${ch.role}
+          </div>
+          <p class="chapter-tagline">"${ch.tagline}"</p>
+        </div>
+
+        ${storyHTML}
+        ${journeyHTML}
+        ${impactHTML}
+        ${techHTML}
+        ${publicationHTML}
       </div>
-    `).join('');
-    
-    // Impact Grid
-    const impactGrid = document.getElementById('impact-grid');
-    impactGrid.innerHTML = ch.impact.map(item => `
-      <div class="impact-card fade-in">
-        <span class="impact-value">${item.value}</span>
-        <span class="impact-label">${item.label}</span>
-      </div>
-    `).join('');
-    
-    // Tech Tags
-    const techTags = document.getElementById('tech-tags');
-    techTags.innerHTML = ch.tech.map(tech => `
-      <span class="tech-tag">${tech}</span>
-    `).join('');
+    `;
+
+    container.appendChild(section);
     
     // Chapter Navigation
-    const prevChapter = document.getElementById('prev-chapter');
-    const nextChapter = document.getElementById('next-chapter');
+    const prevBtn = document.getElementById('prev-chapter-btn');
+    const nextBtn = document.getElementById('next-chapter-btn');
     
     if (idx > 0) {
       const prev = chapters[idx - 1];
-      prevChapter.href = `chapter.html?id=${prev.id}`;
-      document.getElementById('prev-chapter-title').textContent = prev.title;
+      prevBtn.href = `chapter.html?id=${prev.id}`;
     } else {
-      prevChapter.style.visibility = 'hidden';
+      prevBtn.style.display = 'none';
     }
     
     if (idx < chapters.length - 1) {
       const next = chapters[idx + 1];
-      nextChapter.href = `chapter.html?id=${next.id}`;
-      document.getElementById('next-chapter-title').textContent = next.title;
+      nextBtn.href = `chapter.html?id=${next.id}`;
     } else {
-      nextChapter.style.visibility = 'hidden';
+      nextBtn.style.display = 'none';
     }
   }
 
