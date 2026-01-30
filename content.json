@@ -650,6 +650,38 @@
         "github": "https://github.com/chiraag-kakar/terraform-aws-mod_reuse",
         "demo": "https://registry.terraform.io/modules/chiraag-kakar/mod_reuse/aws/latest",
         "icon": "🏗️"
+      },
+      {
+        "title": "Context Nexus",
+        "useCase": "AI-native backend platform and SDK for managing, optimizing, and reasoning over context in large-scale agentic and retrieval-augmented AI systems. Features hybrid retrieval (semantic search + knowledge graphs), automatic token budget management, full observability, and Rust-accelerated performance (2-10x faster). Supports PDF, HTML, URLs, and code files with built-in multi-source ingestion.",
+        "tech": [
+          "Python",
+          "Rust",
+          "PyO3",
+          "Knowledge Graphs",
+          "Hybrid Search",
+          "RAG",
+          "PyPI Package"
+        ],
+        "github": "https://github.com/chiraag-kakar/context-nexus",
+        "demo": "https://pypi.org/project/context-nexus/",
+        "icon": "🧠"
+      },
+      {
+        "title": "Lattice",
+        "useCase": "Production-grade data ingestion pipeline that scrapes HTML tables, infers schemas dynamically, and streams data through Kafka into relational databases (MySQL/PostgreSQL). Built for reliability with circuit breakers, retries, idempotency, and full observability. Deployed on Railway with live API endpoints for table ingestion and querying.",
+        "tech": [
+          "Golang",
+          "Kafka",
+          "PostgreSQL",
+          "MySQL",
+          "Docker",
+          "Railway",
+          "Circuit Breakers"
+        ],
+        "github": "https://github.com/chiraag-kakar/lattice",
+        "demo": "https://lattice-producer-production.up.railway.app",
+        "icon": "⚡"
       }
     ]
   },
