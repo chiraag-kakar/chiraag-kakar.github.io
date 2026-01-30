@@ -11,6 +11,7 @@ export class Renderer {
     this.renderChapters();
     this.renderArsenal();
     this.renderQuests();
+    this.renderChronicles();
     this.renderEducation();
     this.renderPhilosophy();
     this.renderContact();
@@ -574,9 +575,10 @@ export class Renderer {
 
     const grid = document.getElementById('quests-grid');
     
-    quests.projects.forEach(project => {
+    quests.projects.forEach((project, index) => {
       const card = document.createElement('div');
-      card.className = 'quest-card fade-in';
+      card.className = `quest-card fade-in stagger-${(index % 3) + 1}`;
+      card.style.setProperty('--stagger-index', index);
       
       const links = [];
       if (project.github) {
@@ -616,6 +618,49 @@ export class Renderer {
       `;
       
       grid.appendChild(card);
+    });
+  }
+
+  renderChronicles() {
+    const { chronicles } = this.content;
+
+    document.getElementById('chronicles-eyebrow').textContent = chronicles.eyebrow;
+    document.getElementById('chronicles-title').textContent = chronicles.title;
+    document.getElementById('chronicles-subtitle').textContent = chronicles.subtitle;
+
+    const timeline = document.getElementById('chronicles-timeline');
+    
+    chronicles.articles.forEach((article, index) => {
+      const articleEl = document.createElement('article');
+      articleEl.className = `chronicle-article fade-in stagger-${(index % 2) + 1}`;
+      
+      articleEl.innerHTML = `
+        <div class="chronicle-meta">
+          <span class="chronicle-icon">${article.icon}</span>
+          <div class="chronicle-meta-info">
+            <span class="chronicle-category">${article.category}</span>
+            <span class="chronicle-date">${article.date}</span>
+            <span class="chronicle-read-time">${article.readTime}</span>
+          </div>
+        </div>
+        <div class="chronicle-content">
+          <h3 class="chronicle-title">
+            <a href="${article.link}" target="_blank" rel="noopener">${article.title}</a>
+          </h3>
+          <p class="chronicle-excerpt">${article.excerpt}</p>
+          <div class="chronicle-tags">
+            ${article.tags.map(tag => `<span class="chronicle-tag">${tag}</span>`).join('')}
+          </div>
+          <a href="${article.link}" target="_blank" rel="noopener" class="chronicle-link">
+            Read Article
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      `;
+      
+      timeline.appendChild(articleEl);
     });
   }
 

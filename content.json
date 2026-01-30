@@ -22,6 +22,11 @@
       "section": "quests"
     },
     {
+      "text": "The Chronicles",
+      "href": "#chronicles",
+      "section": "chronicles"
+    },
+    {
       "text": "Foundation",
       "href": "#education",
       "section": "education"
@@ -685,6 +690,45 @@
       }
     ]
   },
+  "chronicles": {
+    "eyebrow": "The Chronicles",
+    "title": "Stories from the Field",
+    "subtitle": "Deep dives into building systems, solving problems, and sharing what I've learned",
+    "articles": [
+      {
+        "title": "Context Nexus: Building Relationship-Aware High-Performance RAG",
+        "excerpt": "A deep dive into building an AI-native backend platform that combines semantic search with knowledge graphs. Learn how hybrid retrieval, Rust acceleration, and token budget management create production-ready RAG systems that outperform vector-only approaches.",
+        "link": "https://chiraag-kakar.medium.com/context-nexus-building-relationship-aware-high-performance-rag-52ec5a1488db",
+        "date": "2024",
+        "readTime": "~15 min",
+        "tags": [
+          "RAG",
+          "Knowledge Graphs",
+          "Rust",
+          "Python",
+          "AI Systems"
+        ],
+        "icon": "🧠",
+        "category": "AI & Machine Learning"
+      },
+      {
+        "title": "Guide to Set Up & Deploy Django Project with MongoDB, Nginx, Gunicorn, and Supervisor on AWS EC2",
+        "excerpt": "A comprehensive walkthrough for deploying production Django applications on AWS EC2. Covers MongoDB setup, Nginx reverse proxy configuration, Gunicorn WSGI server, and Supervisor process management—everything you need for a robust production deployment.",
+        "link": "https://chiraag-kakar.medium.com/guide-to-set-up-deploy-django-project-with-mongodb-nginx-gunicorn-and-supervisor-on-aws-ec2-8472f685e24",
+        "date": "2024",
+        "readTime": "~20 min",
+        "tags": [
+          "Django",
+          "AWS",
+          "MongoDB",
+          "DevOps",
+          "Deployment"
+        ],
+        "icon": "☁️",
+        "category": "Infrastructure & DevOps"
+      }
+    ]
+  },
   "education": {
     "eyebrow": "The Foundation",
     "title": "Where It All Began",
@@ -813,6 +857,10 @@
           {
             "text": "Quests",
             "url": "#quests"
+          },
+          {
+            "text": "The Chronicles",
+            "url": "#chronicles"
           }
         ]
       }
