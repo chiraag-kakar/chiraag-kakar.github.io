@@ -12,7 +12,7 @@ export class ChapterDetail {
   }
 
   fav(url, size) {
-    return url ? 'https://www.google.com/s2/favicons?sz=' + (size || 64) + '&domain_url=' + encodeURIComponent(url) : '';
+    return url ? 'https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=' + (size || 64) + '&url=' + encodeURIComponent(url) : '';
   }
 
   ensureOverlay() {
