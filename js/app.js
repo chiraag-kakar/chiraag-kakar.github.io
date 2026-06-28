@@ -23,7 +23,22 @@ class App {
     this.wireChapters();
     this.wireStory();
     this.wireDropdown();
+    this.wireMobileNav();
     this.wireContact();
+  }
+
+  // Hamburger menu for ≤880px — toggles the nav-links drop panel.
+  wireMobileNav() {
+    const nav = document.getElementById('cd-nav');
+    const toggle = nav && nav.querySelector('[data-cd-navtoggle]');
+    if (!nav || !toggle) return;
+    const set = (v) => { nav.classList.toggle('is-open', v); toggle.setAttribute('aria-expanded', String(v)); };
+    toggle.addEventListener('click', (ev) => { ev.stopPropagation(); set(!nav.classList.contains('is-open')); });
+    // Close after navigating to a section or opening a chapter
+    nav.querySelectorAll('.nav-links a, .nav-links .nav-drop-item').forEach(el =>
+      el.addEventListener('click', () => set(false)));
+    // Close on outside tap
+    document.addEventListener('click', (ev) => { if (!nav.contains(ev.target)) set(false); });
   }
 
   // Open chapter detail from any element carrying data-cd-chapter (cards + dropdown)
