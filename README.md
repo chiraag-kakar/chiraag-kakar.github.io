@@ -24,12 +24,15 @@ genesisthread/
 ├── styles.css          # everything visual
 ├── content.json        # my story, easy to edit
 └── js/
-    ├── app.js          # ties it together
-    ├── renderer.js     # turns json into dom
-    └── scroll-manager.js
+    ├── app.js             # ties it together
+    ├── renderer.js        # turns json into dom
+    ├── scroll-manager.js  # constellation canvas, parallax, reveal, tilt
+    ├── chapter.js         # the full-screen chapter case-file
+    ├── story.js           # cinematic "Play the Story" mode
+    └── util.js            # shared helpers
 ```
 
-**Why vanilla?** Because I wanted something I could deploy anywhere, understand completely, and maintain without chasing dependency updates. The whole thing is under 50KB.
+**Why vanilla?** Because I wanted something I could deploy anywhere, understand completely, and maintain without chasing dependency updates. No frameworks, no build step — just files that work.
 
 ---
 
@@ -51,12 +54,12 @@ genesisthread/
 
 The color palette is intentional:
 
-- **Cream background** — easier on the eyes than stark white
+- **Near-black background** — a dark, cinematic canvas for the constellation
 - **Gold accents** — warm, draws attention where it matters
 - **Terracotta highlights** — for the important bits
-- **Sage green** — secondary, calming
+- **Sage, teal & violet** — per-chapter accents, calming and distinct
 
-Typography is Inter for body (readable, professional) and JetBrains Mono for code (because code should look like code).
+Typography is Newsreader for display (a literary serif that suits a story), Hanken Grotesk for body (readable, modern), and JetBrains Mono for code and labels (because code should look like code).
 
 Everything animates with `transform` and `opacity` so the GPU handles it. Intersection Observer triggers animations as you scroll—no janky scroll listeners firing 60 times a second.
 

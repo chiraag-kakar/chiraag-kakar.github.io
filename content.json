@@ -1,121 +1,111 @@
 {
-  "meta": {
-    "name": "Chiraag",
-    "accent": ".dev",
-    "title": "Backend & Platform Engineer",
-    "tagline": "Backend systems that don't blink"
-  },
-  "navigation": [
-    {
-      "text": "The Journey",
-      "href": "#chapters",
-      "section": "chapters"
-    },
-    {
-      "text": "Arsenal",
-      "href": "#arsenal",
-      "section": "arsenal"
-    },
-    {
-      "text": "Quests",
-      "href": "#quests",
-      "section": "quests"
-    },
-    {
-      "text": "The Chronicles",
-      "href": "#chronicles",
-      "section": "chronicles"
-    },
-    {
-      "text": "Foundation",
-      "href": "#education",
-      "section": "education"
-    },
-    {
-      "text": "Philosophy",
-      "href": "#philosophy",
-      "section": "philosophy"
-    },
-    {
-      "text": "Epilogue",
-      "href": "#contact",
-      "section": "contact"
-    }
+  "accents": [
+    "#4db3c4",
+    "#d9974f",
+    "#5fae9e",
+    "#d77f5a",
+    "#84a86a",
+    "#6f9bc7",
+    "#d97b6b",
+    "#c99a4a",
+    "#8e93cf",
+    "#b884b0"
   ],
-  "hero": {
-    "badge": "Crafting Distributed Systems",
-    "titleLine1": "Every line of code",
-    "titleLine2": "tells a story.",
-    "titleHighlight": "This is mine.",
-    "subtitle": "Software Engineer with 3+ years crafting backend systems that power millions of transactions. In the world of distributed systems, elegance isn't about what you add—it's about what you can take away while maintaining reliability at scale.",
-    "ctaText": "Begin the Journey",
-    "readTime": "~12 min read"
-  },
-  "arsenal": {
-    "eyebrow": "Tech Arsenal",
-    "title": "Tools of the Trade",
-    "subtitle": "Technologies I've wielded in production to build systems that scale",
-    "categories": [
-      {
-        "name": "Languages",
-        "items": [
-          "TypeScript",
-          "Python",
-          "Golang",
-          "Java"
-        ]
-      },
-      {
-        "name": "Backend",
-        "items": [
-          "Node.js",
-          "FastAPI",
-          "Django",
-          "Express"
-        ]
-      },
-      {
-        "name": "Cloud & DevOps",
-        "items": [
-          "AWS Lambda",
-          "SQS",
-          "DynamoDB",
-          "Terraform",
-          "Docker"
-        ]
-      },
-      {
-        "name": "Databases",
-        "items": [
-          "PostgreSQL",
-          "MongoDB",
-          "Redis",
-          "DynamoDB"
-        ]
-      },
-      {
-        "name": "Frontend",
-        "items": [
-          "Vue.js",
-          "React",
-          "Flutter"
-        ]
-      },
-      {
-        "name": "Tools",
-        "items": [
-          "Git",
-          "CI/CD",
-          "Nginx",
-          "Streamlit"
-        ]
-      }
-    ]
-  },
   "chapters": [
     {
-      "id": "chapter-coda",
-      "chapterLabel": "Chapter 01 · 2022 – Jan 2026",
+      "label": "Chapter 01 · Jan 2026 – Present",
+      "company": "Wattr AI",
+      "companyUrl": "https://wattr.ai",
+      "role": "Founding Engineer & Technical Lead",
+      "period": "January 2026 – Present",
+      "title": "From Monolith to Cloud-Native Fleet",
+      "tagline": "Building a production IoT platform from the ground up",
+      "highlight": {
+        "metric": "144M",
+        "label": "Records / Day",
+        "punch": "Set up the architecture, CI/CD, and standards from scratch, then led a team of three to a live IoT platform serving 54 tenants and 5,000+ devices across 8 states."
+      },
+      "story": {
+        "setting": "Wattr AI runs a production IoT platform for utilities, 54 tenants, 5,000+ devices, and 8 states. As founding engineer and technical lead, I established the engineering foundation from scratch: architecture, CI/CD, release process, and standards, while leading a team of three.",
+        "quest": "How do you migrate a legacy ASP.NET Web Forms and SQL Server monolith to a cloud-native platform, live, incrementally, without ever taking the fleet offline?"
+      },
+      "journey": [
+        {
+          "title": "Laying the Foundation",
+          "text": "Established the architecture, CI/CD, release process, and engineering standards from zero, and led a team of three delivering a production IoT platform across 54 tenants, 5,000+ devices, and 8 states.",
+          "quote": "A platform is only as strong as the standards it ships with."
+        },
+        {
+          "title": "Migrating the Monolith, Live",
+          "text": "Led the migration of a legacy ASP.NET Web Forms and SQL Server monolith to a cloud-native TypeScript, PostgreSQL/TimescaleDB, and Vue 3 platform on AWS, re-modeling a 50-table, ~90-stored-procedure schema into layered REST and GraphQL services and a 39-feature single-page application, cut over incrementally with the legacy system live in production.",
+          "quote": "The safest migration is the one users never notice."
+        },
+        {
+          "title": "Telemetry at 1,667 msgs/sec",
+          "text": "Designed a high-throughput telemetry ingestion platform processing ~1,667 messages/sec and ~144M records/day, with buffered bulk ingestion, resilient backpressure handling, and idempotent write guarantees that eliminated fleet-wide duplicate ingestion caused by MQTT redelivery semantics.",
+          "quote": "Idempotency is what lets you sleep through a redelivery storm."
+        },
+        {
+          "title": "Incremental Aggregation",
+          "text": "Replaced a 30+ minute full materialized-view refresh with a watermark-driven incremental aggregation framework (2–5 seconds per batch over a ~2 TB rolling dataset), and built a CQRS read architecture using precomputed projections as the system of record for dashboard reads, targeting sub-100 ms p95 query latency.",
+          "quote": "Precompute the answer before the question is asked."
+        },
+        {
+          "title": "Tiered Retention and Reporting",
+          "text": "Cut telemetry storage costs with a tiered retention pipeline, Parquet exports to S3, Postgres partition drops at 90 days, Glacier-IR at 180, and an Athena/Glue catalog for serverless SQL over years of history, then re-architected reporting on embedded DuckDB in ephemeral Fargate workers (~4.5M records across 54 tenants in ~3 minutes at < $0.01 per run), cutting report ingestion from ~1.2 hours to 60–80 seconds.",
+          "quote": "Keep the hot path lean; let cold data live cheaply."
+        },
+        {
+          "title": "Hardening the Fleet",
+          "text": "Hardened the platform across security, device control, and reliability: multi-tenant auth (Cognito OTP-to-JWT with Bloom-filter login gating and row-level-security isolation across 40+ tables), a bidirectional device control plane (start/stop, scheduling, OTA over a legacy-to-cloud MQTT bridge), and resilient ingestion via workload isolation and leader-elected jobs after a DB saturation incident.",
+          "quote": "Reliability is a feature you earn after the incident."
+        }
+      ],
+      "impact": [
+        {
+          "value": "54",
+          "label": "Tenants"
+        },
+        {
+          "value": "5,000+",
+          "label": "Devices"
+        },
+        {
+          "value": "144M",
+          "label": "Records / Day"
+        },
+        {
+          "value": "1,667",
+          "label": "Msgs / sec"
+        },
+        {
+          "value": "~2 TB",
+          "label": "Rolling Dataset"
+        },
+        {
+          "value": "60–80s",
+          "label": "Report Ingestion"
+        },
+        {
+          "value": "8",
+          "label": "States"
+        }
+      ],
+      "tech": [
+        "TypeScript",
+        "Go",
+        "PostgreSQL/TimescaleDB",
+        "Redis",
+        "DuckDB",
+        "Kafka",
+        "MQTT",
+        "AWS (ECS, Fargate, S3, Athena, Cognito)",
+        "Terraform",
+        "Vue 3"
+      ]
+    },
+    {
+      "label": "Chapter 02 · 2022 – Jan 2026",
       "company": "Coda Payments",
       "companyUrl": "https://coda.co/",
       "role": "Software Engineer",
@@ -129,38 +119,38 @@
       },
       "story": {
         "setting": "Coda Payments powers digital transactions for 300+ publishers and 50+ gaming titles across 84 countries. The platform processes $100M+ in monthly TPV, connecting gamers with their favorite titles through a complex web of payment channels, compliance rules, and content providers.",
-        "quest": "How do you transform a fragmented integration landscape—where each publisher required custom builds taking weeks—into a unified platform that onboards publishers in hours while maintaining 99.9% uptime?"
+        "quest": "How do you transform a fragmented integration landscape, where each publisher required custom builds taking weeks, into a unified platform that onboards publishers in hours while maintaining 99.9% uptime?"
       },
       "journey": [
         {
           "title": "Understanding the Chaos",
-          "text": "Mapped the end-to-end publisher lifecycle and found ~70% of integration work was repetitive boilerplate hidden inside one-off implementations. Each new partner meant weeks of duplicated effort—and a growing surface area for mistakes.",
-          "quote": "\"The first step to solving any problem is seeing it clearly.\""
+          "text": "Mapped the end-to-end publisher lifecycle and found ~70% of integration work was repetitive boilerplate hidden inside one-off implementations. Each new partner meant weeks of duplicated effort, and a growing surface area for mistakes.",
+          "quote": "The first step to solving any problem is seeing it clearly."
         },
         {
           "title": "Designing for Reuse, Not Exceptions",
           "text": "Designed reusable, access-controlled internal APIs and configuration-driven workflows that turn publisher and campaign complexity into safe defaults. Standardization cut cross-team integration effort by ~70% and made onboarding more predictable.",
-          "quote": "\"Platforms succeed when defaults work for most cases.\""
+          "quote": "Platforms succeed when defaults work for most cases."
         },
         {
           "title": "Self-Service as a Revenue Engine",
           "text": "Built and evolved the Self-Service Publisher Portal so publishers could onboard, configure products, and launch within guardrails. This directly enabled new publishers to contribute $5M+ in monthly TPV via self-service.",
-          "quote": "\"Self-service only works when failure is designed out.\""
+          "quote": "Self-service only works when failure is designed out."
         },
         {
           "title": "The Fight for Data Integrity",
           "text": "Faced a critical challenge with concurrent voucher redemptions. Redesigned DynamoDB write semantics to safely support 100K+ codes across multi-country campaigns, eliminating 100% silent data loss under peak concurrent writes.",
-          "quote": "\"Reliability is tested when there is no rollback window.\""
+          "quote": "Reliability is tested when there is no rollback window."
         },
         {
           "title": "Performance at the Speed of Play",
           "text": "Improved SKU resolution throughput by migrating to a cache-first, event-driven architecture with pre-materialized views. This reduced p99 latency from ~80ms to ~15ms, ensuring the platform scales reliably during even the biggest gaming promotions.",
-          "quote": "\"Fast systems earn trust; predictable systems keep it.\""
+          "quote": "Fast systems earn trust; predictable systems keep it."
         },
         {
           "title": "Operational Excellence at Scale",
           "text": "Built automation for pricing, SKU management, and scheduler-driven data syncs using Lambda, SQS, Redis, and DynamoDB. Led end-to-end release management across multiple production services with zero Sev-1 incidents.",
-          "quote": "\"Automation is how platforms pay back their complexity.\""
+          "quote": "Automation is how platforms pay back their complexity."
         }
       ],
       "impact": [
@@ -205,8 +195,7 @@
       ]
     },
     {
-      "id": "chapter-hyperverge",
-      "chapterLabel": "Chapter 02 · Jan – May 2022",
+      "label": "Chapter 03 · Jan – May 2022",
       "company": "HyperVerge AI",
       "companyUrl": "https://hyperverge.co/in/",
       "role": "SDE Intern (DevOps)",
@@ -219,19 +208,19 @@
         "punch": "Replaced days of manual CI setup with Terraform modules. One command to provision, one to destroy."
       },
       "story": {
-        "setting": "HyperVerge powers AI-driven identity verification for banks and fintech companies. The infrastructure team was manually provisioning CI runners—each setup taking hours and prone to configuration drift.",
+        "setting": "HyperVerge powers AI-driven identity verification for banks and fintech companies. The infrastructure team was manually provisioning CI runners, each setup taking hours and prone to configuration drift.",
         "quest": "Transform manual provisioning into reusable infrastructure that teams could deploy with confidence, while automating the migration from on-premises to cloud."
       },
       "journey": [
         {
           "title": "The Manual Pain",
           "text": "Watched engineers spend days configuring CI runners. Each setup was slightly different, creating a maintenance nightmare and slowing down the entire development cycle.",
-          "quote": "\"If you're doing it twice, you're doing it wrong.\""
+          "quote": "If you're doing it twice, you're doing it wrong."
         },
         {
           "title": "Infrastructure as Code",
           "text": "Automated CI runner provisioning and migration workflows using Infrastructure-as-Code. Designed a reusable Terraform module for VPC, routing, and EC2 that achieved 4K+ downloads on the Registry.",
-          "quote": "\"Good infrastructure documents itself.\""
+          "quote": "Good infrastructure documents itself."
         }
       ],
       "impact": [
@@ -258,8 +247,7 @@
       ]
     },
     {
-      "id": "chapter-sequoia",
-      "chapterLabel": "Chapter 03 · Aug 2021 – Jan 2022",
+      "label": "Chapter 04 · Aug 2021 – Jan 2022",
       "company": "Sequoia Capital",
       "companyUrl": "https://www.peakxv.com/",
       "role": "Software Consultant",
@@ -279,12 +267,12 @@
         {
           "title": "Cross-Platform Excellence",
           "text": "Built responsive Flutter UI components for Pathfinders, ensuring a consistent experience for ~25 international operators and dozens of portfolio founders across multiple platforms.",
-          "quote": "\"Great mobile experiences feel native, not compromised.\""
+          "quote": "Great mobile experiences feel native, not compromised."
         },
         {
           "title": "Backend Services",
           "text": "Designed and implemented Profile and Support services using FastAPI. Built the onboarding engine that enabled mentor-founder connections for ~6 initial portfolio startups.",
-          "quote": "\"APIs are contracts. Treat them like legal documents.\""
+          "quote": "APIs are contracts. Treat them like legal documents."
         }
       ],
       "impact": [
@@ -310,8 +298,7 @@
       ]
     },
     {
-      "id": "chapter-economize",
-      "chapterLabel": "Chapter 04 · May – Jul 2021",
+      "label": "Chapter 05 · May – Jul 2021",
       "company": "economize.cloud",
       "companyUrl": "https://www.economize.cloud/",
       "role": "Software Engineer Intern (FullStack)",
@@ -319,8 +306,8 @@
       "title": "Decoding the Cloud Bill",
       "tagline": "Every dollar saved is a dollar earned",
       "highlight": {
-        "metric": "GCP",
-        "label": "FinOps",
+        "metric": "~30%",
+        "label": "Savings Found",
         "punch": "Built Go-based REST APIs integrating with GCP Billing to expose VM-level cost drivers, uncovering ~30% in potential savings."
       },
       "story": {
@@ -331,12 +318,12 @@
         {
           "title": "The Visibility Problem",
           "text": "Teams couldn't optimize what they couldn't see. Built REST APIs in Go that translated GCP billing complexity into clear insights, exposing VM-level cost drivers.",
-          "quote": "\"You can't optimize what you can't measure.\""
+          "quote": "You can't optimize what you can't measure."
         },
         {
           "title": "Actionable Dashboards",
           "text": "Contributed frontend dashboards enabling customers to identify cost optimization opportunities, supporting reported cloud cost reductions of ~30%.",
-          "quote": "\"Every dollar saved in cloud is a dollar invested in product.\""
+          "quote": "Every dollar saved in cloud is a dollar invested in product."
         }
       ],
       "impact": [
@@ -362,8 +349,7 @@
       ]
     },
     {
-      "id": "chapter-hackerearth",
-      "chapterLabel": "Chapter 05 · Feb – May 2021",
+      "label": "Chapter 06 · Feb – May 2021",
       "company": "HackerEarth",
       "companyUrl": "https://www.hackerearth.com/",
       "role": "Full Stack Problem Setter",
@@ -376,19 +362,19 @@
         "punch": "Crafted Django problems that test skill without frustration. The best puzzles reward understanding."
       },
       "story": {
-        "setting": "HackerEarth is a platform where developers sharpen their skills through coding challenges. Great problems don't just test—they teach.",
+        "setting": "HackerEarth is a platform where developers sharpen their skills through coding challenges. Great problems don't just test, they teach.",
         "quest": "Create full-stack problems of varying difficulties that challenge developers while being fair, educational, and thoroughly tested."
       },
       "journey": [
         {
           "title": "Problem Design",
           "text": "Created full-stack problems primarily in Django, balancing difficulty with learning outcomes. Each problem told a story that made the challenge engaging.",
-          "quote": "\"A good problem is a puzzle that rewards understanding.\""
+          "quote": "A good problem is a puzzle that rewards understanding."
         },
         {
           "title": "Quality Assurance",
           "text": "Wrote comprehensive unit tests to verify module functionality and data integrity. A problem with a bug is worse than no problem at all.",
-          "quote": "\"Test the tests, then test again.\""
+          "quote": "Test the tests, then test again."
         }
       ],
       "impact": [
@@ -409,8 +395,7 @@
       ]
     },
     {
-      "id": "chapter-jwoc",
-      "chapterLabel": "Chapter 06 · Jan – Feb 2021",
+      "label": "Chapter 07 · Jan – Feb 2021",
       "company": "JGEC Winter of Code",
       "companyUrl": "https://jwoc-2k21.vercel.app/",
       "role": "Lead Organiser & Program Manager",
@@ -430,12 +415,12 @@
         {
           "title": "Community Building",
           "text": "Organized an event with 600+ registered participants from across India. Built systems to match mentees with projects and mentors effectively.",
-          "quote": "\"Open source is about people as much as code.\""
+          "quote": "Open source is about people as much as code."
         },
         {
           "title": "Hands-on Mentorship",
-          "text": "Mentored Share N Learn project personally. Guided contributors through 50+ merged PRs and 70+ closed issues—each one a learning moment.",
-          "quote": "\"The best way to learn is to ship something real.\""
+          "text": "Mentored Share N Learn project personally. Guided contributors through 50+ merged PRs and 70+ closed issues, each one a learning moment.",
+          "quote": "The best way to learn is to ship something real."
         }
       ],
       "impact": [
@@ -460,9 +445,9 @@
       ]
     },
     {
-      "id": "chapter-zaptay",
-      "chapterLabel": "Chapter 07 · Nov 2020 – Feb 2021",
+      "label": "Chapter 08 · Nov 2020 – Feb 2021",
       "company": "Zaptay.com",
+      "companyUrl": "",
       "role": "Software Engineer Intern",
       "period": "November 2020 – February 2021",
       "title": "When Payments Met Production",
@@ -473,19 +458,19 @@
         "punch": "E-commerce from scratch to production. Django, payments, and AWS. Production bugs teach humility."
       },
       "story": {
-        "setting": "Every e-commerce platform starts somewhere. Zaptay needed a complete storefront—from browsing to checkout to payment—built from the ground up.",
+        "setting": "Every e-commerce platform starts somewhere. Zaptay needed a complete storefront, from browsing to checkout to payment, built from the ground up.",
         "quest": "Collaborate with a cross-functional team to build a production e-commerce portal, complete with payment integration and deployment to AWS."
       },
       "journey": [
         {
           "title": "Full Stack Development",
           "text": "Built the e-commerce portal collaborating with front-end and back-end developers. Learned the art of shipping features that work together seamlessly.",
-          "quote": "\"E-commerce is easy until someone tries to pay.\""
+          "quote": "E-commerce is easy until someone tries to pay."
         },
         {
           "title": "Payment & Production",
-          "text": "Set up payment flow, troubleshot production bugs, and deployed using Django, Nginx, and MongoDB on AWS EC2. Production taught lessons textbooks can't.",
-          "quote": "\"Production bugs are the universe's way of teaching humility.\""
+          "text": "Set up payment flow, troubleshot production bugs, and deployed using Django, Nginx, and MongoDB on AWS EC2. Production taught lessons textbooks can’t.",
+          "quote": "Production bugs are the universe's way of teaching humility."
         }
       ],
       "impact": [
@@ -507,8 +492,7 @@
       ]
     },
     {
-      "id": "chapter-iitk",
-      "chapterLabel": "Chapter 08 · Dec 2019 – Jan 2021",
+      "label": "Chapter 09 · Dec 2019 – Jan 2021",
       "company": "IIT Kharagpur - CoE AMT",
       "companyUrl": "https://coeamt.iitkgp.ac.in/",
       "role": "Software Engineer & Research Intern",
@@ -522,18 +506,18 @@
       },
       "story": {
         "setting": "The Centre of Excellence in Advanced Manufacturing Technologies at IIT Kharagpur was working on process optimization for friction stir welding using deep learning.",
-        "quest": "Transform research CNN models into production-ready applications—both standalone GUI and web-based—that manufacturing engineers could actually use."
+        "quest": "Transform research CNN models into production-ready applications, both standalone GUI and web-based, that manufacturing engineers could actually use."
       },
       "journey": [
         {
           "title": "Research Foundation",
           "text": "Worked on Process Optimization & Operational Intelligence for friction stir welding. Explored ways to validate weld quality and identify defect types.",
-          "quote": "\"Research without application is just expensive curiosity.\""
+          "quote": "Research without application is just expensive curiosity."
         },
         {
           "title": "Production Applications",
           "text": "Developed standalone GUI application integrated with CNN model. Built interactive Django web application making the solution accessible to non-technical users.",
-          "quote": "\"The best ML model is useless if nobody can use it.\""
+          "quote": "The best ML model is useless if nobody can use it."
         }
       ],
       "impact": [
@@ -555,8 +539,7 @@
       ]
     },
     {
-      "id": "chapter-makaut",
-      "chapterLabel": "Chapter 09 · The Written Word",
+      "label": "Chapter 10 · The Written Word",
       "company": "MAKAUT Research",
       "companyUrl": "https://link.springer.com/",
       "role": "Research Intern & Co-Author",
@@ -576,12 +559,12 @@
         {
           "title": "Deep Dive",
           "text": "Worked under Dr. Soumen Kr Pati on an in-depth review of ML architectures for cancer prognosis. Evaluated each taxonomy through rigorous evaluation metrics.",
-          "quote": "\"Good research stands on the shoulders of giants.\""
+          "quote": "Good research stands on the shoulders of giants."
         },
         {
           "title": "Publication",
           "text": "Chapter published in Springer's Advanced Machine Learning Approaches in Cancer Prognosis 2020. Included future scopes and recommendations for researchers.",
-          "quote": "\"A published paper is just the beginning of its impact.\""
+          "quote": "A published paper is just the beginning of its impact."
         }
       ],
       "impact": [
@@ -609,262 +592,195 @@
       }
     }
   ],
-  "quests": {
-    "eyebrow": "Side Quests",
-    "title": "The Laboratory",
-    "subtitle": "Weekend experiments that became something more",
-    "projects": [
-      {
-        "title": "Peak Locator",
-        "useCase": "A collection of peak detection algorithms for numerical data. Supports 1D (brute force, binary search, hybrid), 2D (divide-and-conquer for matrices), and N-dimensional data with automatic algorithm selection, duplicate handling, and built-in visualization tools. Production-ready with full type annotations and comprehensive tests.",
-        "tech": [
-          "Python",
-          "NumPy",
-          "Matplotlib",
-          "PyPI Package",
-          "Type Annotations"
-        ],
-        "github": "https://github.com/chiraag-kakar/peak-locator",
-        "demo": "https://pypi.org/project/peak-locator/",
-        "icon": "📊"
-      },
-      {
-        "title": "LuminaCV",
-        "useCase": "Privacy-first resume builder running entirely in your browser. No sign-ups, no servers, no data collection. Features real-time preview, 4 professional templates, multiple exports (PDF, JSON, Markdown), zero-server URL sharing, keyboard shortcuts, WCAG 2.1 AA compliance, and 50+ E2E test scenarios.",
-        "tech": [
-          "TypeScript",
-          "React",
-          "Tailwind CSS",
-          "Client-Side Only",
-          "WCAG 2.1 AA"
-        ],
-        "github": "https://github.com/chiraag-kakar/luminacv",
-        "demo": "https://chiraag-kakar.github.io/luminacv/",
-        "icon": "✨"
-      },
-      {
-        "title": "Terraform AWS Module",
-        "useCase": "A public, reusable Terraform module for AWS infrastructure published to the official Terraform Registry. Enables infrastructure-as-code best practices with modular, composable cloud resources that teams can deploy with confidence.",
-        "tech": [
-          "Terraform",
-          "AWS",
-          "Infrastructure as Code",
-          "HCL",
-          "DevOps"
-        ],
-        "github": "https://github.com/chiraag-kakar/terraform-aws-mod_reuse",
-        "demo": "https://registry.terraform.io/modules/chiraag-kakar/mod_reuse/aws/latest",
-        "icon": "🏗️"
-      },
-      {
-        "title": "Context Nexus",
-        "useCase": "AI-native backend platform and SDK for managing, optimizing, and reasoning over context in large-scale agentic and retrieval-augmented AI systems. Features hybrid retrieval (semantic search + knowledge graphs), automatic token budget management, full observability, and Rust-accelerated performance (2-10x faster). Supports PDF, HTML, URLs, and code files with built-in multi-source ingestion.",
-        "tech": [
-          "Python",
-          "Rust",
-          "PyO3",
-          "Knowledge Graphs",
-          "Hybrid Search",
-          "RAG",
-          "PyPI Package"
-        ],
-        "github": "https://github.com/chiraag-kakar/context-nexus",
-        "demo": "https://pypi.org/project/context-nexus/",
-        "icon": "🧠"
-      },
-      {
-        "title": "Lattice",
-        "useCase": "Production-grade data ingestion pipeline that scrapes HTML tables, infers schemas dynamically, and streams data through Kafka into relational databases (MySQL/PostgreSQL). Built for reliability with circuit breakers, retries, idempotency, and full observability. Deployed on Railway with live API endpoints for table ingestion and querying.",
-        "tech": [
-          "Golang",
-          "Kafka",
-          "PostgreSQL",
-          "MySQL",
-          "Docker",
-          "Railway",
-          "Circuit Breakers"
-        ],
-        "github": "https://github.com/chiraag-kakar/lattice",
-        "demo": "https://lattice-producer-production.up.railway.app",
-        "icon": "⚡"
-      }
-    ]
-  },
-  "chronicles": {
-    "eyebrow": "The Chronicles",
-    "title": "Stories from the Field",
-    "subtitle": "Deep dives into building systems, solving problems, and sharing what I've learned",
-    "articles": [
-      {
-        "title": "Context Nexus: Building Relationship-Aware High-Performance RAG",
-        "excerpt": "A deep dive into building an AI-native backend platform that combines semantic search with knowledge graphs. Learn how hybrid retrieval, Rust acceleration, and token budget management create production-ready RAG systems that outperform vector-only approaches.",
-        "link": "https://chiraag-kakar.medium.com/context-nexus-building-relationship-aware-high-performance-rag-52ec5a1488db",
-        "date": "2024",
-        "readTime": "~15 min",
-        "tags": [
-          "RAG",
-          "Knowledge Graphs",
-          "Rust",
-          "Python",
-          "AI Systems"
-        ],
-        "icon": "🧠",
-        "category": "AI & Machine Learning"
-      },
-      {
-        "title": "Guide to Set Up & Deploy Django Project with MongoDB, Nginx, Gunicorn, and Supervisor on AWS EC2",
-        "excerpt": "A comprehensive walkthrough for deploying production Django applications on AWS EC2. Covers MongoDB setup, Nginx reverse proxy configuration, Gunicorn WSGI server, and Supervisor process management—everything you need for a robust production deployment.",
-        "link": "https://chiraag-kakar.medium.com/guide-to-set-up-deploy-django-project-with-mongodb-nginx-gunicorn-and-supervisor-on-aws-ec2-8472f685e24",
-        "date": "2024",
-        "readTime": "~20 min",
-        "tags": [
-          "Django",
-          "AWS",
-          "MongoDB",
-          "DevOps",
-          "Deployment"
-        ],
-        "icon": "☁️",
-        "category": "Infrastructure & DevOps"
-      }
-    ]
-  },
-  "education": {
-    "eyebrow": "The Foundation",
-    "title": "Where It All Began",
-    "school": "Jalpaiguri Government Engineering College",
-    "degree": "B.Tech, Computer Science & Engineering",
-    "period": "July 2018 – June 2022",
-    "gpa": "CGPA: 8.5 / 10.0",
-    "location": "Jalpaiguri, West Bengal, India"
-  },
-  "philosophy": {
-    "eyebrow": "Principles",
-    "title": "Engineering Philosophy",
-    "subtitle": "The beliefs that guide how I build systems and work with teams",
-    "cards": [
-      {
-        "icon": "⚡",
-        "title": "Simplicity Over Cleverness",
-        "text": "The best code isn't the cleverest—it's the code your teammates can understand at 3am during an incident."
-      },
-      {
-        "icon": "📊",
-        "title": "Measure First, Optimize Second",
-        "text": "Intuition is often wrong about performance. Instrument everything, profile bottlenecks, then optimize what matters."
-      },
-      {
-        "icon": "🔄",
-        "title": "Embrace Eventual Consistency",
-        "text": "In distributed systems, strong consistency is expensive. Design for eventual consistency where business logic allows."
-      },
-      {
-        "icon": "📝",
-        "title": "Document Decisions",
-        "text": "Future you will forget why you made that choice. ADRs, comments on the 'why', and runbooks save hours of archaeology."
-      },
-      {
-        "icon": "🛡️",
-        "title": "Fail Gracefully",
-        "text": "Systems will fail. Design for graceful degradation—circuit breakers, fallbacks, and clear error messages for operators."
-      },
-      {
-        "icon": "🤝",
-        "title": "Build for the Team",
-        "text": "Code outlives its authors. Good APIs, clear boundaries, and honest documentation compound over time."
-      }
-    ]
-  },
-  "contact": {
-    "label": "Epilogue",
-    "title": "Let's Write the Next Chapter",
-    "subtitle": "Whether you're scaling systems, building teams, or just want to discuss distributed architecture—I'd love to hear from you.",
-    "items": [
-      {
-        "label": "Email",
-        "value": "chiraag.kakar.22@gmail.com",
-        "link": "mailto:chiraag.kakar.22@gmail.com"
-      },
-      {
-        "label": "GitHub",
-        "value": "@chiraag-kakar",
-        "link": "https://github.com/chiraag-kakar"
-      },
-      {
-        "label": "LinkedIn",
-        "value": "/in/chiraag-kakar",
-        "link": "https://www.linkedin.com/in/chiraag-kakar"
-      }
-    ],
-    "formTypes": [
-      "Opportunity",
-      "Collaboration",
-      "Just Saying Hi"
-    ],
-    "placeholders": {
-      "name": "Your name",
-      "email": "your@email.com",
-      "message": "Tell me about your challenge..."
+  "projects": [
+    {
+      "title": "Peak Locator",
+      "icon": "📊",
+      "useCase": "Peak detection algorithms for numerical data, 1D (brute force, binary search, hybrid), 2D (divide-and-conquer for matrices), and N-dimensional data with automatic algorithm selection, duplicate handling, and built-in visualization. Production-ready with full type annotations and tests.",
+      "tech": [
+        "Python",
+        "NumPy",
+        "Matplotlib",
+        "PyPI"
+      ],
+      "github": "https://github.com/chiraag-kakar/peak-locator",
+      "demo": "https://pypi.org/project/peak-locator/"
     },
-    "submitText": "Send Message",
-    "quote": "\"The best systems are built by people who care about the problem, not just the solution.\""
-  },
-  "footer": {
-    "copyright": "Chiraag Kakar",
-    "tagline": "Building systems that scale, one commit at a time",
-    "sections": [
+    {
+      "title": "LuminaCV",
+      "icon": "✨",
+      "useCase": "Privacy-first resume builder running entirely in your browser. No sign-ups, no servers. Real-time preview, 4 templates, multiple exports (PDF, JSON, Markdown), zero-server URL sharing, WCAG 2.1 AA compliance, and 50+ E2E test scenarios.",
+      "tech": [
+        "TypeScript",
+        "React",
+        "Tailwind",
+        "Client-Side"
+      ],
+      "github": "https://github.com/chiraag-kakar/luminacv",
+      "demo": "https://chiraag-kakar.github.io/luminacv/"
+    },
+    {
+      "title": "Terraform AWS Module",
+      "icon": "🏗️",
+      "useCase": "A public, reusable Terraform module for AWS infrastructure published to the official Terraform Registry. Enables infrastructure-as-code best practices with modular, composable cloud resources teams can deploy with confidence.",
+      "tech": [
+        "Terraform",
+        "AWS",
+        "IaC",
+        "HCL"
+      ],
+      "github": "https://github.com/chiraag-kakar/terraform-aws-mod_reuse",
+      "demo": "https://registry.terraform.io/modules/chiraag-kakar/mod_reuse/aws/latest"
+    },
+    {
+      "title": "Context Nexus",
+      "icon": "🧠",
+      "useCase": "AI-native backend platform and SDK for managing context in large-scale agentic and RAG systems. Hybrid retrieval (semantic search + knowledge graphs), automatic token budget management, full observability, and Rust-accelerated performance (2–10x faster).",
+      "tech": [
+        "Python",
+        "Rust",
+        "PyO3",
+        "RAG"
+      ],
+      "github": "https://github.com/chiraag-kakar/context-nexus",
+      "demo": "https://pypi.org/project/context-nexus/"
+    },
+    {
+      "title": "Lattice",
+      "icon": "⚡",
+      "useCase": "Production-grade data ingestion pipeline that scrapes HTML tables, infers schemas dynamically, and streams data through Kafka into relational databases. Built for reliability with circuit breakers, retries, idempotency, and full observability.",
+      "tech": [
+        "Golang",
+        "Kafka",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "github": "https://github.com/chiraag-kakar/lattice",
+      "demo": "https://lattice-producer-production.up.railway.app"
+    }
+  ],
+  "articles": [
+    {
+      "title": "Context Nexus: Building Relationship-Aware High-Performance RAG",
+      "excerpt": "A deep dive into building an AI-native backend platform that combines semantic search with knowledge graphs. How hybrid retrieval, Rust acceleration, and token budget management create production-ready RAG systems that outperform vector-only approaches.",
+      "link": "https://chiraag-kakar.medium.com/context-nexus-building-relationship-aware-high-performance-rag-52ec5a1488db",
+      "readTime": "~15 min",
+      "category": "AI & Machine Learning"
+    },
+    {
+      "title": "Deploy Django with MongoDB, Nginx, Gunicorn & Supervisor on AWS EC2",
+      "excerpt": "A comprehensive walkthrough for deploying production Django applications on AWS EC2. Covers MongoDB setup, Nginx reverse proxy, Gunicorn WSGI, and Supervisor process management, everything you need for a robust production deployment.",
+      "link": "https://chiraag-kakar.medium.com/guide-to-set-up-deploy-django-project-with-mongodb-nginx-gunicorn-and-supervisor-on-aws-ec2-8472f685e24",
+      "readTime": "~20 min",
+      "category": "Infrastructure & DevOps"
+    }
+  ],
+  "principles": [
+    {
+      "title": "Simplicity Over Cleverness",
+      "text": "The best code isn't the cleverest, it's the code your teammates can understand at 3am during an incident."
+    },
+    {
+      "title": "Measure First, Optimize Second",
+      "text": "Intuition is often wrong about performance. Instrument everything, profile bottlenecks, then optimize what matters."
+    },
+    {
+      "title": "Embrace Eventual Consistency",
+      "text": "In distributed systems, strong consistency is expensive. Design for eventual consistency where business logic allows."
+    },
+    {
+      "title": "Document Decisions",
+      "text": "Future you will forget why you made that choice. ADRs, comments on the 'why', and runbooks save hours of archaeology."
+    },
+    {
+      "title": "Fail Gracefully",
+      "text": "Systems will fail. Design for graceful degradation, circuit breakers, fallbacks, and clear error messages for operators."
+    },
+    {
+      "title": "Build for the Team",
+      "text": "Code outlives its authors. Good APIs, clear boundaries, and honest documentation compound over time."
+    }
+  ],
+  "arsenal": {
+    "terminalTab": "~/arsenal, stack.config",
+    "prompt": "$ whoami --stack",
+    "heading": "Six domains. One constant: ship reliably.",
+    "stats": [
       {
-        "title": "Connect",
-        "links": [
-          {
-            "text": "GitHub",
-            "url": "https://github.com/chiraag-kakar"
-          },
-          {
-            "text": "LinkedIn",
-            "url": "https://www.linkedin.com/in/chiraag-kakar"
-          },
-          {
-            "text": "Medium",
-            "url": "https://medium.com/@chiraag-kakar"
-          }
-        ]
+        "value": "25",
+        "label": "Technologies"
       },
       {
-        "title": "Resources",
-        "links": [
-          {
-            "text": "Resume",
-            "url": "https://drive.google.com/file/d/116L28ffgwdZdNQZ4sbIPc8ndxsnuLt28/view?usp=sharing"
-          },
-          {
-            "text": "Publication",
-            "url": "https://link.springer.com/chapter/10.1007/978-3-030-71975-3_2"
-          }
-        ]
+        "value": "6",
+        "label": "Domains"
       },
       {
-        "title": "Navigate",
-        "links": [
-          {
-            "text": "The Journey",
-            "url": "#chapters"
-          },
-          {
-            "text": "Arsenal",
-            "url": "#arsenal"
-          },
-          {
-            "text": "Quests",
-            "url": "#quests"
-          },
-          {
-            "text": "The Chronicles",
-            "url": "#chronicles"
-          }
-        ]
+        "value": "4",
+        "label": "Languages"
       }
     ],
-    "bottomText": "Designed & built with ☕ and curiosity"
+    "domains": [
+      {
+        "name": "Languages",
+        "accent": "#d9974f",
+        "items": [
+          "TypeScript",
+          "Python",
+          "Go",
+          "Java"
+        ]
+      },
+      {
+        "name": "Backend",
+        "accent": "#5fae9e",
+        "items": [
+          "Node.js",
+          "FastAPI",
+          "Django",
+          "Express"
+        ]
+      },
+      {
+        "name": "Cloud & DevOps",
+        "accent": "#6f9bc7",
+        "items": [
+          "AWS",
+          "ECS / Fargate",
+          "Lambda",
+          "Terraform",
+          "Docker"
+        ]
+      },
+      {
+        "name": "Data",
+        "accent": "#84a86a",
+        "items": [
+          "PostgreSQL",
+          "TimescaleDB",
+          "Redis",
+          "DuckDB"
+        ]
+      },
+      {
+        "name": "Streaming & IoT",
+        "accent": "#d97b6b",
+        "items": [
+          "Kafka",
+          "MQTT",
+          "SQS"
+        ]
+      },
+      {
+        "name": "Frontend & Tools",
+        "accent": "#b884b0",
+        "items": [
+          "Vue 3",
+          "React",
+          "Flutter",
+          "Git",
+          "CI/CD"
+        ]
+      }
+    ]
   }
 }

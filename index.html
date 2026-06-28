@@ -4,363 +4,269 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chiraag.dev — Software Engineer</title>
-  <meta name="description" content="Every line of code tells a story. This is mine. Software engineer building scalable systems and developer tools.">
-  <meta name="theme-color" content="#faf8f5">
-  
+  <meta name="description" content="Every line of code tells a story. This is mine. Software engineer crafting distributed systems that power millions of transactions.">
+  <meta name="theme-color" content="#100d0a">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23c9a66b' rx='20' width='100' height='100'/><text x='50' y='68' text-anchor='middle' fill='%23faf8f5' font-family='system-ui' font-weight='700' font-size='55'>C</text></svg>">
-  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23e9b873' rx='20' width='100' height='100'/><text x='50' y='70' text-anchor='middle' fill='%23100d0a' font-family='Georgia,serif' font-weight='400' font-size='62'>C</text></svg>">
+
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div class="loader" id="loader">
-    <div class="loader-content">
-      <div class="loader-logo">Chiraag<span>.dev</span></div>
-      <p class="loader-subtitle">Crafting Your Story...</p>
-      <p class="loader-hint">Loading the journey—stay tuned.</p>
-      <div class="loader-book">
-        <div class="loader-book-cover"></div>
-        <div class="loader-book-spine"></div>
-        <div class="loader-book-pages">
-          <div class="loader-book-page"></div>
-          <div class="loader-book-page"></div>
-          <div class="loader-book-page"></div>
+  <div id="cd-root">
+
+    <!-- Film grain overlay -->
+    <div id="cd-grain" aria-hidden="true"></div>
+
+    <!-- Left social rail -->
+    <div id="cd-rail" aria-hidden="false">
+      <a href="https://github.com/chiraag-kakar" target="_blank" rel="noopener" class="rail-link" title="GitHub" aria-label="GitHub"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"></path></svg></a>
+      <a href="https://www.linkedin.com/in/chiraag-kakar" target="_blank" rel="noopener" class="rail-link" title="LinkedIn" aria-label="LinkedIn"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"></path></svg></a>
+      <a href="https://medium.com/@chiraag-kakar" target="_blank" rel="noopener" class="rail-link" title="Medium" aria-label="Medium"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42S20.96 8.46 20.96 12zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path></svg></a>
+      <a href="mailto:chiraag.kakar.22@gmail.com" class="rail-link" title="Email" aria-label="Email"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"></rect><path d="m3 7 9 6 9-6"></path></svg></a>
+      <span class="rail-line"></span>
+    </div>
+
+    <!-- Nav -->
+    <nav id="cd-nav" aria-label="Primary">
+      <a href="#cd-top" class="nav-logo">Chiraag<span>.dev</span></a>
+      <div class="nav-links" data-cd-navlinks>
+        <div id="cd-jdrop" class="nav-drop">
+          <button class="nav-drop-trigger" data-cd-jtrigger aria-haspopup="true" aria-expanded="false">Journey <span class="caret">▾</span></button>
+          <div class="nav-drop-menu" data-cd-jmenu role="menu">
+            <a href="#cd-chapters" class="nav-drop-all">View all ten chapters →</a>
+            <div class="nav-drop-divider"></div>
+            <div data-render="dropdown"></div>
+          </div>
+        </div>
+        <a href="#cd-arsenal" class="nav-link">Arsenal</a>
+        <a href="#cd-quests" class="nav-link">Quests</a>
+        <a href="#cd-chronicles" class="nav-link">Chronicles</a>
+        <a href="#cd-philosophy" class="nav-link">Philosophy</a>
+      </div>
+      <a href="#cd-contact" class="nav-cta">Get in touch</a>
+    </nav>
+
+    <!-- Hero -->
+    <header id="cd-top" class="hero">
+      <div id="cd-canvaswrap" class="hero-canvaswrap">
+        <canvas id="cd-canvas" class="hero-canvas"></canvas>
+      </div>
+      <div id="cd-spot" class="hero-spot" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+
+      <div id="cd-herocopy" class="hero-copy">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Crafting Distributed Systems
+        </div>
+        <h1 class="hero-title">
+          Every line of code<br><span class="hero-title-accent">tells a story.</span>
+        </h1>
+        <p class="hero-tagline">This is mine.</p>
+        <p class="hero-intro">
+          Software engineer with 3+ years crafting backend systems that power millions of transactions. In distributed systems, elegance isn't about what you add, it's about what you can take away while holding reliability at scale.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-cd-story><span class="btn-play"><svg width="9" height="10" viewBox="0 0 9 10" fill="#e9b873"><path d="M0 0l9 5-9 5z"></path></svg></span> Play the Story</button>
+          <a href="#cd-chapters" class="btn btn-ghost">Or scroll the journey <span class="mono">↓</span></a>
+          <a href="https://github.com/chiraag-kakar" target="_blank" rel="noopener" class="btn btn-ghost"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"></path></svg> GitHub</a>
+          <a href="https://www.linkedin.com/in/chiraag-kakar" target="_blank" rel="noopener" class="btn btn-ghost"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"></path></svg> LinkedIn</a>
+        </div>
+        <div class="hero-meta">
+          <span>Backend &amp; Platform Engineer</span><span class="sep">/</span><span>3+ years</span><span class="sep">/</span><span>~14 min read</span>
         </div>
       </div>
-    </div>
-    <!-- Floating elements in loader -->
-    <div class="loader-floats">
-      <div class="loader-float loader-float-1">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="40" cy="18" rx="28" ry="10"/><path d="M12 18v44c0 5.5 12.5 10 28 10s28-4.5 28-10V18"/><path d="M12 36c0 5.5 12.5 10 28 10s28-4.5 28-10"/><path d="M12 54c0 5.5 12.5 10 28 10s28-4.5 28-10"/></svg>
-      </div>
-      <div class="loader-float loader-float-2">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"><path d="M60 40h-4A18 18 0 1 0 22 50h-4a14 14 0 0 0 0 28h42a16 16 0 0 0 0-32z"/></svg>
-      </div>
-      <div class="loader-float loader-float-3">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="16" y="16" width="48" height="48" rx="4"/><rect x="28" y="28" width="24" height="24" rx="2"/><path d="M28 8v8M40 8v8M52 8v8M28 64v8M40 64v8M52 64v8M8 28h8M8 40h8M8 52h8M64 28h8M64 40h8M64 52h8"/></svg>
-      </div>
-      <div class="loader-float loader-float-4">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="26,56 10,40 26,24"/><polyline points="54,24 70,40 54,56"/><line x1="46" y1="18" x2="34" y2="62"/></svg>
-      </div>
-      <div class="loader-float loader-float-5">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="10" width="60" height="60" rx="4"/><polyline points="20,50 32,35 48,45 60,25" stroke-width="2.5"/><circle cx="32" cy="35" r="4" fill="currentColor"/><circle cx="48" cy="45" r="4" fill="currentColor"/><circle cx="60" cy="25" r="4" fill="currentColor"/></svg>
-      </div>
-      <div class="loader-float loader-float-6">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="12" y="10" width="56" height="18" rx="3"/><rect x="12" y="32" width="56" height="18" rx="3"/><rect x="12" y="54" width="56" height="18" rx="3"/><circle cx="22" cy="19" r="3" fill="currentColor"/><circle cx="22" cy="41" r="3" fill="currentColor"/><circle cx="22" cy="63" r="3" fill="currentColor"/></svg>
-      </div>
-    </div>
-  </div>
 
-  <!-- Progress Bar -->
-  <div class="progress-bar" id="progress-bar"></div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span class="scroll-cue-label">Scroll</span>
+        <span class="scroll-cue-line"></span>
+      </div>
+    </header>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-container">
-      <a href="#" class="nav-logo">Chiraag<span>.dev</span></a>
-      <div class="nav-links" id="nav-links"></div>
-      <div class="nav-actions">
-        <a href="https://github.com/chiraag-kakar" target="_blank" rel="noopener" class="nav-social" aria-label="GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/chiraag-kakar" target="_blank" rel="noopener" class="nav-social" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="https://drive.google.com/file/d/116L28ffgwdZdNQZ4sbIPc8ndxsnuLt28/view?usp=sharing" target="_blank" rel="noopener" class="nav-resume" aria-label="Resume">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6a2 2 0 0 0-2 2z"/>
-            <path d="M14 2v6h6"/>
-            <circle cx="12" cy="13" r="2"/>
-            <path d="M16 19c0-2-1.8-3-4-3s-4 1-4 3"/>
-          </svg>
-        </a>
-        <a href="#contact" class="nav-cta">Get in Touch</a>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Reading Progress Bar -->
-  <div class="reading-progress-bar" id="reading-progress-bar"></div>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-content" id="mobile-menu-links"></div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <!-- Prominent Floating Elements - Dark Shaded -->
-    <div class="floating-elements" aria-hidden="true">
-      <div class="floating-icon floating-db" data-parallax="0.05">
-        <svg viewBox="0 0 80 80" fill="none">
-          <ellipse cx="40" cy="18" rx="28" ry="10" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 18v44c0 5.5 12.5 10 28 10s28-4.5 28-10V18" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 36c0 5.5 12.5 10 28 10s28-4.5 28-10" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 54c0 5.5 12.5 10 28 10s28-4.5 28-10" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </div>
-      
-      <div class="floating-icon floating-cloud" data-parallax="0.03">
-        <svg viewBox="0 0 80 80" fill="none">
-          <path d="M60 40h-4A18 18 0 1 0 22 50h-4a14 14 0 0 0 0 28h42a16 16 0 0 0 0-32z" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </div>
-      
-      <div class="floating-icon floating-chip" data-parallax="0.04">
-        <svg viewBox="0 0 80 80" fill="none">
-          <rect x="16" y="16" width="48" height="48" rx="4" stroke="currentColor" stroke-width="2"/>
-          <rect x="28" y="28" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
-          <path d="M28 8v8M40 8v8M52 8v8M28 64v8M40 64v8M52 64v8M8 28h8M8 40h8M8 52h8M64 28h8M64 40h8M64 52h8" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </div>
-      
-      <div class="floating-icon floating-code" data-parallax="0.06">
-        <svg viewBox="0 0 80 80" fill="none">
-          <polyline points="26,56 10,40 26,24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <polyline points="54,24 70,40 54,56" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="46" y1="18" x2="34" y2="62" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      
-      <div class="floating-icon floating-metrics" data-parallax="0.02">
-        <svg viewBox="0 0 80 80" fill="none">
-          <rect x="10" y="10" width="60" height="60" rx="4" stroke="currentColor" stroke-width="2"/>
-          <polyline points="20,50 32,35 48,45 60,25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="32" cy="35" r="4" fill="currentColor"/>
-          <circle cx="48" cy="45" r="4" fill="currentColor"/>
-          <circle cx="60" cy="25" r="4" fill="currentColor"/>
-        </svg>
-      </div>
-      
-      <div class="floating-icon floating-server" data-parallax="0.035">
-        <svg viewBox="0 0 80 80" fill="none">
-          <rect x="12" y="10" width="56" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-          <rect x="12" y="32" width="56" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-          <rect x="12" y="54" width="56" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-          <circle cx="22" cy="19" r="3" fill="currentColor"/>
-          <circle cx="22" cy="41" r="3" fill="currentColor"/>
-          <circle cx="22" cy="63" r="3" fill="currentColor"/>
-        </svg>
-      </div>
-    </div>
-    
-    <div class="hero-container">
-      <div class="hero-badge" id="hero-badge"></div>
-      <h1 class="hero-title">
-        <span class="hero-line" id="hero-line-1"></span>
-        <span class="hero-line hero-line-accent" id="hero-line-2"></span>
-        <span class="hero-line hero-highlight" id="hero-line-3"></span>
-      </h1>
-      <p class="hero-subtitle" id="hero-subtitle"></p>
-      <a href="#chapters" class="hero-cta" id="hero-cta">
-        <span id="hero-cta-text"></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 5v14M5 12l7 7 7-7"/>
-        </svg>
-      </a>
-    </div>
-    
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chapter Previews Section (Landing) -->
-  <section class="chapters-preview-section" id="chapters">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">The Journey</span>
-        <h2 class="section-title">Nine Chapters. One Story.</h2>
-        <p class="section-subtitle">Each role shaped a new perspective. Click to dive deeper.</p>
-      </div>
-      <div class="chapters-preview-grid" id="chapters-preview-grid"></div>
-    </div>
-  </section>
-
-  <!-- Chapter Detail View (Hidden by default, shown when viewing a chapter) -->
-  <section class="chapter-detail-section" id="chapter-detail" style="display: none;">
-    <div class="chapter-detail-container" id="chapter-detail-content"></div>
-  </section>
-
-  <!-- Arsenal Section -->
-  <section class="arsenal-section" id="arsenal">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow" id="arsenal-eyebrow"></span>
-        <h2 class="section-title" id="arsenal-title"></h2>
-        <p class="section-subtitle" id="arsenal-subtitle"></p>
-      </div>
-      <div class="arsenal-grid" id="arsenal-grid"></div>
-    </div>
-  </section>
-
-  <!-- Quests Section -->
-  <section class="quests-section" id="quests">
-    <!-- Floating Sketchy Graphics -->
-    <div class="section-floating-graphics" aria-hidden="true">
-      <svg class="float-graphic float-graphic-1" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="100" cy="100" r="80" opacity="0.3"/>
-        <path d="M100 20 L180 100 L100 180 L20 100 Z" opacity="0.4"/>
-        <circle cx="100" cy="100" r="40" opacity="0.5"/>
-      </svg>
-      <svg class="float-graphic float-graphic-2" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="40" y="40" width="120" height="120" rx="10" opacity="0.3"/>
-        <polyline points="60,80 100,120 140,80" opacity="0.4"/>
-        <circle cx="100" cy="140" r="20" opacity="0.5"/>
-      </svg>
-      <svg class="float-graphic float-graphic-3" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M50 150 Q100 50 150 150" opacity="0.4"/>
-        <circle cx="100" cy="80" r="30" opacity="0.3"/>
-      </svg>
-    </div>
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow" id="quests-eyebrow"></span>
-        <h2 class="section-title" id="quests-title"></h2>
-        <p class="section-subtitle" id="quests-subtitle"></p>
-      </div>
-      <div class="quests-staggered" id="quests-grid"></div>
-    </div>
-  </section>
-
-  <!-- Chronicles (Blogs) Section -->
-  <section class="chronicles-section" id="chronicles">
-    <!-- Floating Sketchy Graphics -->
-    <div class="section-floating-graphics" aria-hidden="true">
-      <svg class="float-graphic float-graphic-1" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M50 100 L100 50 L150 100 L100 150 Z" opacity="0.3"/>
-        <circle cx="100" cy="100" r="40" opacity="0.2"/>
-      </svg>
-      <svg class="float-graphic float-graphic-2" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="60" y="60" width="80" height="80" rx="8" opacity="0.3"/>
-        <line x1="80" y1="100" x2="120" y2="100" opacity="0.4"/>
-        <line x1="100" y1="80" x2="100" y2="120" opacity="0.4"/>
-      </svg>
-    </div>
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow" id="chronicles-eyebrow"></span>
-        <h2 class="section-title" id="chronicles-title"></h2>
-        <p class="section-subtitle" id="chronicles-subtitle"></p>
-      </div>
-      <div class="chronicles-timeline" id="chronicles-timeline"></div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="education-section" id="education">
-    <!-- Floating Sketchy Graphics -->
-    <div class="section-floating-graphics" aria-hidden="true">
-      <svg class="float-graphic float-graphic-1" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
-        <polygon points="100,30 170,80 170,160 100,110 30,160 30,80" opacity="0.3"/>
-        <path d="M60 120 L100 90 L140 120" opacity="0.4"/>
-      </svg>
-      <svg class="float-graphic float-graphic-2" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="50" y="60" width="100" height="80" rx="8" opacity="0.3"/>
-        <line x1="80" y1="90" x2="120" y2="90" opacity="0.4"/>
-        <line x1="80" y1="110" x2="120" y2="110" opacity="0.4"/>
-        <circle cx="65" cy="80" r="8" opacity="0.5"/>
-      </svg>
-    </div>
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow" id="education-eyebrow"></span>
-        <h2 class="section-title" id="education-title"></h2>
-      </div>
-      <div class="education-content" id="education-content"></div>
-    </div>
-  </section>
-
-  <!-- Philosophy Section -->
-  <section class="philosophy-section" id="philosophy">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow" id="philosophy-eyebrow"></span>
-        <h2 class="section-title" id="philosophy-title"></h2>
-        <p class="section-subtitle" id="philosophy-subtitle"></p>
-      </div>
-      <div class="philosophy-grid" id="philosophy-cards"></div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <span class="section-eyebrow" id="contact-label"></span>
-      <h2 class="contact-title" id="contact-title"></h2>
-      <p class="contact-subtitle" id="contact-subtitle"></p>
-      
-      <div class="contact-grid">
-        <div class="contact-info" id="contact-info"></div>
-        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mrgwkpvp" method="POST">
-          <div class="form-group">
-            <label for="inquiry-type">Type</label>
-            <div class="inquiry-tags" id="inquiry-tags"></div>
-            <input type="hidden" id="inquiry-type" name="type" required>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn" id="submit-btn">
-            <span id="submit-text"></span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </button>
-        </form>
-      </div>
-      
-      <p class="contact-quote" id="contact-quote"></p>
-    </div>
-  </section>
-
-  <!-- Footer - Dark -->
-  <footer class="footer" id="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <a href="#" class="footer-logo">Chiraag<span>.dev</span></a>
-          <p class="footer-tagline" id="footer-tagline"></p>
+    <!-- Journey -->
+    <section id="cd-chapters" class="section section-journey">
+      <div class="blob blob-gold" data-cd-px="0.10"></div>
+      <div class="blob blob-teal" data-cd-px="0.18"></div>
+      <div class="section-inner journey-inner">
+        <div class="section-head section-head-center" data-cd-reveal>
+          <div class="eyebrow eyebrow-gold">§ The Journey</div>
+          <h2 class="display">Ten chapters.<br><span class="display-em">One continuous thread.</span></h2>
+          <p class="lead">Each role is a constellation node above. Open a chapter to read the full case file, the setting, the quest, and what shipped.</p>
         </div>
-        <div class="footer-sections" id="footer-sections"></div>
+        <div class="chapters-grid" data-render="chapters"></div>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copyright" id="footer-copyright"></p>
-        <p class="footer-bottom-text" id="footer-bottom-text"></p>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Scripts -->
+    <!-- Arsenal -->
+    <section id="cd-arsenal" class="section section-arsenal">
+      <div class="arsenal-fade"></div>
+      <div class="arsenal-glow"></div>
+      <div class="arsenal-grid-bg"></div>
+      <div class="bignum bignum-gold" data-cd-px="0.14" data-cd-px-x="0.056">01</div>
+      <div class="section-inner arsenal-inner">
+        <div class="section-head" data-cd-reveal>
+          <div class="eyebrow-row"><span class="eyebrow-num eyebrow-num-gold">01</span><span class="eyebrow eyebrow-gold">§ Tech Arsenal</span></div>
+          <h2 class="display">Tools of the <span class="display-em">trade</span></h2>
+          <p class="lead">Technologies wielded in production to build systems that scale, and stay quiet under pressure.</p>
+        </div>
+
+        <div class="arsenal-terminal" data-cd-reveal data-cd-tilt data-cd-accent="#e9b873" style="--accent:#e9b873">
+          <div class="arsenal-terminal-main">
+            <div class="terminal-bar">
+              <span class="dot dot-red"></span><span class="dot dot-gold"></span><span class="dot dot-green"></span>
+              <span class="terminal-path">~/arsenal, stack.config</span>
+            </div>
+            <div class="terminal-prompt">$ whoami --stack<span class="caret-block"></span></div>
+            <h3 class="terminal-heading">Six domains. One constant: <span class="display-em">ship reliably.</span></h3>
+          </div>
+          <div class="arsenal-stats">
+            <div class="arsenal-stat"><div class="arsenal-stat-value">25</div><div class="arsenal-stat-label">Technologies</div></div>
+            <div class="arsenal-stat"><div class="arsenal-stat-value">6</div><div class="arsenal-stat-label">Domains</div></div>
+            <div class="arsenal-stat"><div class="arsenal-stat-value">4</div><div class="arsenal-stat-label">Languages</div></div>
+          </div>
+          <span class="glare glare-gold" data-cd-glare></span>
+        </div>
+
+        <div class="arsenal-domains" data-render="arsenal"></div>
+      </div>
+    </section>
+
+    <!-- Quests -->
+    <section id="cd-quests" class="section section-quests">
+      <div class="quests-fade"></div>
+      <div class="blob blob-terra-soft" data-cd-px="0.09"></div>
+      <div class="blob blob-sage-soft" data-cd-px="0.16"></div>
+      <div class="bignum bignum-terra" data-cd-px="0.13" data-cd-px-x="0.052">02</div>
+      <div class="section-inner quests-inner">
+        <div class="section-head" data-cd-reveal>
+          <div class="eyebrow-row"><span class="eyebrow-num eyebrow-num-terra">02</span><span class="eyebrow eyebrow-terra">§ Side Quests</span></div>
+          <h2 class="display display-dark">The laboratory</h2>
+          <p class="lead lead-dark">Weekend experiments that shipped, packages on PyPI &amp; the Terraform Registry, live demos, and production pipelines.</p>
+        </div>
+        <div class="quests-grid" data-render="projects"></div>
+      </div>
+    </section>
+
+    <!-- Chronicles -->
+    <section id="cd-chronicles" class="section section-chronicles">
+      <div class="blob blob-gold-soft" data-cd-px="0.08"></div>
+      <div class="blob blob-coral-soft" data-cd-px="0.15"></div>
+      <div class="bignum bignum-terra" data-cd-px="0.13" data-cd-px-x="0.052">03</div>
+      <div class="section-inner chronicles-inner">
+        <div class="section-head" data-cd-reveal>
+          <div class="eyebrow-row"><span class="eyebrow-num eyebrow-num-terra">03</span><span class="eyebrow eyebrow-terra">§ The Chronicles</span></div>
+          <h2 class="display display-dark">Stories from the field</h2>
+        </div>
+        <div class="chronicles-list" data-render="articles"></div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="cd-philosophy" class="section section-philosophy">
+      <div class="philosophy-fade"></div>
+      <div class="blob blob-gold" data-cd-px="0.10"></div>
+      <div class="blob blob-violet" data-cd-px="0.17"></div>
+      <div class="bignum bignum-gold bignum-left" data-cd-px="0.14" data-cd-px-x="0.056">04</div>
+      <div class="section-inner philosophy-inner">
+        <div class="section-head section-head-center" data-cd-reveal>
+          <div class="eyebrow-row eyebrow-row-center"><span class="eyebrow-num eyebrow-num-gold">04</span><span class="eyebrow eyebrow-gold">§ Principles</span></div>
+          <h2 class="display">Engineering <span class="display-em">philosophy</span></h2>
+          <p class="lead">Six beliefs, earned across ten chapters, that guide how I build systems and work with teams.</p>
+        </div>
+        <div class="philosophy-grid" data-render="principles"></div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="cd-education" class="section section-education">
+      <div class="education-card" data-cd-reveal>
+        <div class="eyebrow-row eyebrow-row-center"><span class="eyebrow-num eyebrow-num-gold">05</span><span class="eyebrow eyebrow-gold">§ The Foundation</span></div>
+        <h3 class="education-title">Jalpaiguri Government Engineering College</h3>
+        <p class="education-degree">B.Tech, Computer Science &amp; Engineering · 2018 – 2022</p>
+        <div class="education-meta">
+          <span>CGPA 8.5 / 10.0</span><span class="sep">/</span><span>Jalpaiguri, West Bengal, India</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="cd-contact" class="section section-contact">
+      <div class="blob blob-gold-center" data-cd-px="0.12"></div>
+      <div class="contact-head" data-cd-reveal>
+        <div class="eyebrow eyebrow-gold">§ Epilogue</div>
+        <h2 class="display">Let's write the <span class="display-em">next chapter</span></h2>
+        <p class="lead">Whether you're scaling systems, building teams, or just want to discuss distributed architecture, I'd love to hear from you.</p>
+      </div>
+
+      <form class="contact-form" data-cd-form data-cd-reveal action="https://formspree.io/f/mrgwkpvp" method="POST">
+        <div class="contact-types" data-cd-types>
+          <button type="button" class="type-pill is-active" data-cd-type="Opportunity">Opportunity</button>
+          <button type="button" class="type-pill" data-cd-type="Collaboration">Collaboration</button>
+          <button type="button" class="type-pill" data-cd-type="Just Saying Hi">Just Saying Hi</button>
+        </div>
+        <input type="hidden" name="type" value="Opportunity" data-cd-type-input>
+        <div class="contact-row">
+          <input class="field" name="name" placeholder="Your name" required>
+          <input class="field" name="email" type="email" placeholder="your@email.com" required>
+        </div>
+        <textarea class="field" name="message" rows="4" placeholder="Tell me about your challenge..." required></textarea>
+        <button type="submit" class="btn-submit" data-cd-submit>Send Message</button>
+      </form>
+
+      <div class="contact-links">
+        <a href="mailto:chiraag.kakar.22@gmail.com" class="contact-link">chiraag.kakar.22@gmail.com</a>
+        <span class="contact-sep">·</span>
+        <a href="https://github.com/chiraag-kakar" target="_blank" rel="noopener" class="contact-link">@chiraag-kakar</a>
+        <span class="contact-sep">·</span>
+        <a href="https://www.linkedin.com/in/chiraag-kakar" target="_blank" rel="noopener" class="contact-link">/in/chiraag-kakar</a>
+      </div>
+      <p class="contact-quote">"The best systems are built by people who care about the problem, not just the solution."</p>
+
+      <footer class="footer">
+        <div class="footer-cols">
+          <div class="footer-brand">
+            <div class="footer-logo">Chiraag<span>.dev</span></div>
+            <p class="footer-tagline">Building systems that scale, one commit at a time.</p>
+            <div class="footer-social">
+              <a href="https://github.com/chiraag-kakar" target="_blank" rel="noopener" class="footer-social-link" title="GitHub" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"></path></svg></a>
+              <a href="https://www.linkedin.com/in/chiraag-kakar" target="_blank" rel="noopener" class="footer-social-link" title="LinkedIn" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"></path></svg></a>
+              <a href="https://medium.com/@chiraag-kakar" target="_blank" rel="noopener" class="footer-social-link" title="Medium" aria-label="Medium"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42S20.96 8.46 20.96 12zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path></svg></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Resources</div>
+            <div class="footer-col-links">
+              <a href="https://drive.google.com/file/d/116L28ffgwdZdNQZ4sbIPc8ndxsnuLt28/view?usp=sharing" target="_blank" rel="noopener" class="footer-link">Résumé</a>
+              <a href="https://link.springer.com/chapter/10.1007/978-3-030-71975-3_2" target="_blank" rel="noopener" class="footer-link">Publication</a>
+              <a href="mailto:chiraag.kakar.22@gmail.com" class="footer-link">Email</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Navigate</div>
+            <div class="footer-col-links">
+              <a href="#cd-chapters" class="footer-link">The Journey</a>
+              <a href="#cd-arsenal" class="footer-link">Arsenal</a>
+              <a href="#cd-quests" class="footer-link">Quests</a>
+              <a href="#cd-chronicles" class="footer-link">Chronicles</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copy">© 2026 Chiraag Kakar · Designed &amp; built with curiosity</div>
+          <a href="#cd-top" class="footer-top">Back to top ↑</a>
+        </div>
+      </footer>
+    </section>
+
+  </div>
+
   <script src="js/app.js" type="module"></script>
 </body>
 </html>
