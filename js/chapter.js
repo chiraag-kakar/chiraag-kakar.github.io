@@ -1,6 +1,6 @@
 // Chapter Detail — full-screen case-file overlay for a single chapter.
 
-import { esc, animateCount } from './util.js';
+import { esc, animateCount, companyTile } from './util.js';
 
 export class ChapterDetail {
   constructor(content) {
@@ -9,10 +9,6 @@ export class ChapterDetail {
     this._overlay = null;
     this._open = false;
     window.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && this._open) this.close(); });
-  }
-
-  fav(url, size) {
-    return url ? 'https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=' + (size || 64) + '&url=' + encodeURIComponent(url) : '';
   }
 
   ensureOverlay() {
@@ -50,9 +46,7 @@ export class ChapterDetail {
     const ch = this.CH[i], n = String(i + 1).padStart(2, '0'), total = this.CH.length;
     const e = esc;
 
-    const favImg = ch.companyUrl
-      ? `<img class="detail-company-fav" src="${e(this.fav(ch.companyUrl, 64))}" alt="" onerror="this.style.display='none'">`
-      : '';
+    const favImg = `<img class="detail-company-fav" src="${e(companyTile(ch.company, this.ACCENTS[i]))}" alt="">`;
     const company =
       `<a class="detail-company" href="${e(ch.companyUrl || '#')}" target="_blank" rel="noopener">${favImg}<span>${e(ch.company)}</span></a>` +
       `<span class="detail-role"> · ${e(ch.role)}</span>`;

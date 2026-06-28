@@ -1,7 +1,7 @@
 // Story Mode — cinematic, auto-playing walkthrough of the chapters
 // rendered over a rotating 3D constellation.
 
-import { esc, hexToRgb } from './util.js';
+import { esc, hexToRgb, companyTile } from './util.js';
 
 export class StoryMode {
   constructor(content) {
@@ -120,7 +120,7 @@ export class StoryMode {
     o.querySelector('[data-st-ch]').textContent = 'Chapter ' + String(i + 1).padStart(2, '0') + ' / ' + String(this.CH.length).padStart(2, '0');
     o.querySelector('[data-st-ch]').style.color = a;
     o.querySelector('[data-st-title]').textContent = ch.title;
-    const favImg = ch.companyUrl ? `<img class="story-co-fav" src="${e('https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=64&url=' + encodeURIComponent(ch.companyUrl))}" alt="" onerror="this.style.display='none'">` : '';
+    const favImg = `<img class="story-co-fav" src="${e(companyTile(ch.company, a))}" alt="">`;
     o.querySelector('[data-st-co]').innerHTML = favImg + `<span style="font-weight:600">${e(ch.company)}</span><span style="opacity:.55">${e(ch.role)}</span>`;
     const tg = o.querySelector('[data-st-tag]'); tg.textContent = '“' + ch.tagline + '”'; tg.style.color = a;
     const mv = o.querySelector('[data-st-metric]'); mv.textContent = ch.highlight.metric; mv.style.color = a;

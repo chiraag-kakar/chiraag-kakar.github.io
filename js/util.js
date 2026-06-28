@@ -11,6 +11,18 @@ export function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
+// Build an inline SVG letter-tile as a data URI for a company badge.
+// Self-contained (no network request), so it never produces a console 404 —
+// unlike third-party favicon services, which 404 for un-indexed domains.
+export function companyTile(name, accent) {
+  const letter = esc(String(name || '?').trim().charAt(0).toUpperCase() || '?');
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>` +
+    `<rect width='100' height='100' rx='24' fill='${accent || '#e9b873'}'/>` +
+    `<text x='50' y='50' dy='.35em' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='56' fill='#100d0a'>${letter}</text>` +
+    `</svg>`;
+  return 'data:image/svg+xml,' + svg.replace(/#/g, '%23');
+}
+
 // Animate a numeric value up to its final form (preserving prefix/suffix).
 export function animateCount(el) {
   if (el.__counted) return;
