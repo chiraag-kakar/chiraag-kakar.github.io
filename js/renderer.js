@@ -84,22 +84,44 @@ export class Renderer {
   }
 
   renderProjects() {
-    const html = this.content.projects.map((p) => `
-      <div class="project-card" data-cd-reveal data-cd-tilt>
-        <div class="project-head">
-          <span class="project-icon">${esc(p.icon)}</span>
-          <div class="project-links">
-            <a class="project-link" href="${esc(p.github)}" target="_blank" rel="noopener">Code ↗</a>
-            <a class="project-link" href="${esc(p.demo)}" target="_blank" rel="noopener">Demo ↗</a>
+    const projects = this.content.projects;
+    const total = String(projects.length).padStart(2, '0');
+
+    const slides = projects.map((p, i) => `
+      <article class="qslide" data-qslide="${i}">
+        <div class="qslide-glow"></div>
+        <div class="qslide-card">
+          <div class="qslide-index"><span>${esc(this.num(i))}</span><span class="qslide-index-sep">/</span><span class="qslide-index-tot">${total}</span></div>
+          <div class="qslide-icon">${esc(p.icon)}</div>
+          <h3 class="qslide-title">${esc(p.title)}</h3>
+          <div class="qslide-tech">
+            ${p.tech.map((t) => `<span class="qslide-chip">${esc(t)}</span>`).join('')}
+          </div>
+          <p class="qslide-desc">${esc(p.useCase)}</p>
+          <div class="qslide-links">
+            <a class="qslide-link qslide-link-primary" href="${esc(p.github)}" target="_blank" rel="noopener">View Code <span>↗</span></a>
+            <a class="qslide-link" href="${esc(p.demo)}" target="_blank" rel="noopener">Live Demo <span>↗</span></a>
           </div>
         </div>
-        <h3 class="project-title">${esc(p.title)}</h3>
-        <p class="project-desc">${esc(p.useCase)}</p>
-        <div class="project-spacer"></div>
-        <div class="project-tech">
-          ${p.tech.map((t) => `<span class="project-tech-chip">${esc(t)}</span>`).join('')}
+      </article>`).join('');
+
+    const dots = projects.map((p, i) =>
+      `<button class="qslider-dot" data-qdot="${i}" aria-label="${esc(p.title)}"></button>`).join('');
+
+    const html = `
+      <div class="qslider" data-qslider>
+        <button class="qslider-arrow qslider-prev" data-qprev aria-label="Previous quest">‹</button>
+        <div class="qslider-viewport" data-qviewport>
+          <div class="qslider-stage" data-qstage>${slides}</div>
         </div>
-      </div>`).join('');
+        <button class="qslider-arrow qslider-next" data-qnext aria-label="Next quest">›</button>
+        <div class="qslider-foot">
+          <button class="qslider-pp" data-qpp aria-label="Play or pause"></button>
+          <div class="qslider-dots" data-qdots>${dots}</div>
+          <div class="qslider-progress"><span data-qprog></span></div>
+        </div>
+        <div class="qslider-hint">Drag, use ← → keys, or let it play</div>
+      </div>`;
     this.mount('projects', html);
   }
 

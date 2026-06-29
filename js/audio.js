@@ -1,9 +1,9 @@
 // Background audio — cozy ambient hum on the main page that ducks out for the
 // "Spectre" story-mode track, plus a persistent global mute toggle.
 
-const AMBIENT_SRC = 'assets/audio/ambient.mp3';
+const AMBIENT_SRC = 'assets/audio/bieber-jay_justin-bieber-beauty-and-a-beat-feat-nicki-miaj.mp3';
 const STORY_SRC = 'assets/audio/spectre.mp3';
-const AMBIENT_VOL = 0.32;
+const AMBIENT_VOL = 0.34;
 const STORY_VOL = 0.5;
 const FADE_MS = 700;
 

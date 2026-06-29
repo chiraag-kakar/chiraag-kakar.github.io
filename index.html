@@ -19,6 +19,24 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Preloader — the Genesis Thread draws itself before the story begins -->
+  <div id="cd-loader" role="status" aria-label="Loading">
+    <div class="loader-inner">
+      <svg class="loader-thread" viewBox="0 0 220 120" aria-hidden="true">
+        <path class="lt-path" pathLength="1" d="M14 90 C40 90 46 40 70 40 S104 76 120 70 S150 26 168 30 S198 60 206 56"/>
+        <circle class="lt-node" cx="14" cy="90" r="3.4"/>
+        <circle class="lt-node" cx="70" cy="40" r="3.4"/>
+        <circle class="lt-node" cx="120" cy="70" r="3.4"/>
+        <circle class="lt-node" cx="168" cy="30" r="3.4"/>
+        <circle class="lt-node lt-node-end" cx="206" cy="56" r="4.6"/>
+      </svg>
+      <div class="loader-word">Chiraag<span>.dev</span></div>
+      <div class="loader-sub">Threading the story together</div>
+      <div class="loader-bar"><span class="loader-bar-fill" data-loader-fill></span></div>
+      <div class="loader-pct"><span data-loader-pct>00</span><span class="loader-pct-sign">%</span></div>
+    </div>
+  </div>
+
   <div id="cd-root">
 
     <!-- Film grain overlay -->
@@ -63,6 +81,7 @@
         <canvas id="cd-canvas" class="hero-canvas"></canvas>
       </div>
       <div id="cd-spot" class="hero-spot" aria-hidden="true"></div>
+      <div id="cd-float" class="hero-float" aria-hidden="true"></div>
       <div class="hero-vignette" aria-hidden="true"></div>
 
       <div id="cd-herocopy" class="hero-copy">
@@ -154,7 +173,7 @@
           <h2 class="display display-dark">The laboratory</h2>
           <p class="lead lead-dark">Weekend experiments that shipped, packages on PyPI &amp; the Terraform Registry, live demos, and production pipelines.</p>
         </div>
-        <div class="quests-grid" data-render="projects"></div>
+        <div class="quests-stage" data-render="projects"></div>
       </div>
     </section>
 
@@ -263,7 +282,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <div class="footer-copy">© 2026 Chiraag Kakar · Designed &amp; built with curiosity<br><span class="footer-credit">Music: Alan Walker — Spectre <a href="https://ncs.io/spectre" target="_blank" rel="noopener">[NCS]</a> · ambient via <a href="https://archive.org/details/i-went-to-the-woods-instrumental" target="_blank" rel="noopener">Archive.org (CC0)</a></span></div>
+          <div class="footer-copy">© 2026 Chiraag Kakar · Designed &amp; built with curiosity<br><span class="footer-credit">Music: Justin Bieber — Beauty and a Beat · Story Mode: Alan Walker — Spectre <a href="https://ncs.io/spectre" target="_blank" rel="noopener">[NCS]</a></span></div>
           <a href="#cd-top" class="footer-top">Back to top ↑</a>
         </div>
       </footer>

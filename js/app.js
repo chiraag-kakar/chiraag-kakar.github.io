@@ -5,30 +5,42 @@ import { ScrollManager } from './scroll-manager.js';
 import { ChapterDetail } from './chapter.js';
 import { StoryMode } from './story.js';
 import { AudioManager } from './audio.js';
+import { Loader } from './loader.js';
+import { Floating } from './floating.js';
+import { QuestSlider } from './quest-slider.js';
 
 class App {
   async init() {
-    const res = await fetch('./content.json');
-    this.content = await res.json();
+    this.loader = new Loader();
+    try {
+      const res = await fetch('./content.json');
+      this.content = await res.json();
 
-    // Render data-driven lists from content.json
-    new Renderer(this.content).render();
+      // Render data-driven lists from content.json
+      new Renderer(this.content).render();
 
-    // Background audio (cozy ambient hum + story-mode track) with mute toggle
-    this.audio = new AudioManager();
+      // Background audio (home track + story-mode track) with mute toggle
+      this.audio = new AudioManager();
 
-    // Feature modules
-    this.detail = new ChapterDetail(this.content);
-    this.story = new StoryMode(this.content, this.audio);
+      // Feature modules
+      this.detail = new ChapterDetail(this.content);
+      this.story = new StoryMode(this.content, this.audio);
 
-    // Scroll-driven visuals (after render so cards exist)
-    new ScrollManager(this.content.accents, this.content.chapters.length).init();
+      // Scroll-driven visuals (after render so cards exist)
+      new ScrollManager(this.content.accents, this.content.chapters.length).init();
 
-    this.wireChapters();
-    this.wireStory();
-    this.wireDropdown();
-    this.wireMobileNav();
-    this.wireContact();
+      // Decorative + interactive flourishes
+      new Floating(this.content).init();
+      new QuestSlider().init();
+
+      this.wireChapters();
+      this.wireStory();
+      this.wireDropdown();
+      this.wireMobileNav();
+      this.wireContact();
+    } finally {
+      this.loader.finish();
+    }
   }
 
   // Hamburger menu for ≤880px — toggles the nav-links drop panel.
