@@ -6,8 +6,8 @@ import { ChapterDetail } from './chapter.js';
 import { StoryMode } from './story.js';
 import { AudioManager } from './audio.js';
 import { Loader } from './loader.js';
-import { Floating } from './floating.js';
 import { QuestSlider } from './quest-slider.js';
+import { Flow } from './flow.js';
 
 class App {
   async init() {
@@ -29,9 +29,9 @@ class App {
       // Scroll-driven visuals (after render so cards exist)
       new ScrollManager(this.content.accents, this.content.chapters.length).init();
 
-      // Decorative + interactive flourishes
-      new Floating(this.content).init();
+      // Interactive flourishes
       new QuestSlider().init();
+      new Flow(this.content.accents).init();
 
       this.wireChapters();
       this.wireStory();
@@ -39,7 +39,8 @@ class App {
       this.wireMobileNav();
       this.wireContact();
     } finally {
-      this.loader.finish();
+      // Reveal the site, and start the music the moment the loader lifts.
+      this.loader.finish(() => { if (this.audio) this.audio.start(); });
     }
   }
 

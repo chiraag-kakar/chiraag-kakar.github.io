@@ -24,7 +24,6 @@ export class AudioManager {
     this.story.volume = 0;
 
     this._buildToggle();
-    this._armAutoplay();
   }
 
   // --- Public API ---------------------------------------------------------
@@ -65,12 +64,14 @@ export class AudioManager {
 
   // --- Internals ----------------------------------------------------------
 
-  // Try to start on load; browsers block autoplay-with-sound until the first
-  // user gesture, so fall back to kicking off on the first interaction.
-  _armAutoplay() {
-    const kick = () => this._start();
+  // Kick off the home track (called the moment the loader reveals the site).
+  // Browsers block autoplay-with-sound until the first user gesture, so if the
+  // immediate attempt is refused, fall back to the first interaction.
+  start() {
+    if (this._kicked) return;
+    this._kicked = true;
     this._start().catch(() => {
-      const once = () => { kick(); window.removeEventListener('pointerdown', once); window.removeEventListener('keydown', once); };
+      const once = () => { this._start(); window.removeEventListener('pointerdown', once); window.removeEventListener('keydown', once); };
       window.addEventListener('pointerdown', once, { once: true });
       window.addEventListener('keydown', once, { once: true });
     });

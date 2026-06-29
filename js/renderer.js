@@ -88,20 +88,25 @@ export class Renderer {
     const total = String(projects.length).padStart(2, '0');
 
     const slides = projects.map((p, i) => `
-      <article class="qslide" data-qslide="${i}">
-        <div class="qslide-glow"></div>
+      <article class="qslide" data-qslide="${i}" style="--qa:${esc(this.accent(i))}">
+        <div class="qslide-aura"></div>
         <div class="qslide-card">
-          <div class="qslide-index"><span>${esc(this.num(i))}</span><span class="qslide-index-sep">/</span><span class="qslide-index-tot">${total}</span></div>
-          <div class="qslide-icon">${esc(p.icon)}</div>
+          <span class="qslide-wm">${esc(this.num(i))}</span>
+          <div class="qslide-head">
+            <span class="qslide-badge">${esc(p.icon)}</span>
+            <span class="qslide-kicker"><span class="qslide-kicker-dot"></span>Quest ${esc(this.num(i))} <span class="qslide-kicker-sep">/</span> ${total}</span>
+          </div>
           <h3 class="qslide-title">${esc(p.title)}</h3>
+          <p class="qslide-desc">${esc(p.useCase)}</p>
+          <div class="qslide-spacer"></div>
           <div class="qslide-tech">
             ${p.tech.map((t) => `<span class="qslide-chip">${esc(t)}</span>`).join('')}
           </div>
-          <p class="qslide-desc">${esc(p.useCase)}</p>
           <div class="qslide-links">
             <a class="qslide-link qslide-link-primary" href="${esc(p.github)}" target="_blank" rel="noopener">View Code <span>↗</span></a>
             <a class="qslide-link" href="${esc(p.demo)}" target="_blank" rel="noopener">Live Demo <span>↗</span></a>
           </div>
+          <span class="qslide-edge"></span>
         </div>
       </article>`).join('');
 

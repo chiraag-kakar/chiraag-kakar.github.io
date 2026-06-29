@@ -13,10 +13,10 @@ export class Loader {
     if (this.el) this._tick();
   }
 
-  // Ease toward 90% while we wait — the final 10% lands when finish() is called.
+  // Ease toward 88% while we wait — the final stretch lands when finish() runs.
   _tick() {
     if (this._done) return;
-    this._val = Math.min(90, this._val + (90 - this._val) * 0.05 + 0.4);
+    this._val = Math.min(88, this._val + (88 - this._val) * 0.028 + 0.18);
     this._render(this._val);
     this._raf = requestAnimationFrame(() => this._tick());
   }
@@ -28,9 +28,11 @@ export class Loader {
 
   // Call once the app is ready. Keeps a minimum on-screen time so the
   // animation is actually seen, then runs the counter to 100 and reveals.
-  finish() {
+  // onReveal fires the instant the curtain lifts (used to start the music).
+  finish(onReveal) {
+    this._onReveal = onReveal;
     if (this._done) return;
-    const wait = Math.max(0, 1500 - (performance.now() - this._t0));
+    const wait = Math.max(0, 2600 - (performance.now() - this._t0));
     setTimeout(() => this._complete(), wait);
   }
 
@@ -40,15 +42,16 @@ export class Loader {
     cancelAnimationFrame(this._raf);
     const from = this._val, t0 = performance.now();
     const run = (t) => {
-      const p = Math.min(1, (t - t0) / 420);
+      const p = Math.min(1, (t - t0) / 620);
       this._render(from + (100 - from) * (1 - Math.pow(1 - p, 3)));
       if (p < 1) { requestAnimationFrame(run); return; }
       document.documentElement.classList.remove('cd-loading');
       document.body.classList.add('is-loaded');
+      if (this._onReveal) { try { this._onReveal(); } catch (_) {} }
       if (this.el) {
         this.el.classList.add('is-done');
         const el = this.el;
-        setTimeout(() => { if (el && el.parentNode) el.parentNode.removeChild(el); }, 1000);
+        setTimeout(() => { if (el && el.parentNode) el.parentNode.removeChild(el); }, 1100);
       }
     };
     requestAnimationFrame(run);
