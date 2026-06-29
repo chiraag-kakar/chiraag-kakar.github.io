@@ -4,6 +4,7 @@ import { Renderer } from './renderer.js';
 import { ScrollManager } from './scroll-manager.js';
 import { ChapterDetail } from './chapter.js';
 import { StoryMode } from './story.js';
+import { AudioManager } from './audio.js';
 
 class App {
   async init() {
@@ -13,9 +14,12 @@ class App {
     // Render data-driven lists from content.json
     new Renderer(this.content).render();
 
+    // Background audio (cozy ambient hum + story-mode track) with mute toggle
+    this.audio = new AudioManager();
+
     // Feature modules
     this.detail = new ChapterDetail(this.content);
-    this.story = new StoryMode(this.content);
+    this.story = new StoryMode(this.content, this.audio);
 
     // Scroll-driven visuals (after render so cards exist)
     new ScrollManager(this.content.accents, this.content.chapters.length).init();

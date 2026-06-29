@@ -4,9 +4,10 @@
 import { esc, hexToRgb, companyTile } from './util.js';
 
 export class StoryMode {
-  constructor(content) {
+  constructor(content, audio) {
     this.CH = content.chapters;
     this.ACCENTS = content.accents;
+    this.audio = audio || null;
     this._st = null;
   }
 
@@ -92,6 +93,7 @@ export class StoryMode {
     window.addEventListener('keydown', this._stKey);
 
     this._stOn = true;
+    if (this.audio) this.audio.enterStory();
     this.startCanvas();
     this.setScene(this._stIdx, true);
   }
@@ -196,6 +198,7 @@ export class StoryMode {
     if (!o) return;
     this._stOn = false;
     this._stPlaying = false;
+    if (this.audio) this.audio.exitStory();
     clearTimeout(this._stTimer);
     if (this._stRaf) cancelAnimationFrame(this._stRaf);
     if (this._stResize) window.removeEventListener('resize', this._stResize);
